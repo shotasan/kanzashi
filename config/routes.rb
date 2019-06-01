@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'devise/sessions#new'
+  resources :users, only: :show
 
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: {
