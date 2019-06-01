@@ -233,6 +233,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="autoprefixer-rails (vbundled(9.5.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-9.5.1.1/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="bcrypt (vbundled(3.1.13)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -337,6 +357,30 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.4/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.4/ext" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.4/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bootstrap (vbundled(4.3.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/assets" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/assets" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.3.1/assets" />
         </excluded>
       </library>
     </orderEntry>
@@ -1119,6 +1163,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="popper_js (vbundled(1.14.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.14.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.14.5/assets" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.14.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.14.5/assets" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.14.5/assets" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="pry (vbundled(0.12.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1649,6 +1711,48 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sass-rails-5.0.7/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sassc (vbundled(2.0.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/test" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-2.0.1/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sassc-rails (vbundled(2.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/gemfiles" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/sassc-rails-2.1.1/gemfiles" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
