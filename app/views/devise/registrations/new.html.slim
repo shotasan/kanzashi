@@ -4,6 +4,7 @@ h2
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :name
+    br
     = f.text_field :name, autofocus: true, autocomplete: "name"
   .field
     = f.label :email
