@@ -43,6 +43,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot'
 end
 
 group :development do
