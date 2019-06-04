@@ -62,6 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント編集後、プロフィール画面に移動する
   def after_update_path_for(resource)
-    user_path(id: current_user.id)
+    user_path(resource)
   end
 end
