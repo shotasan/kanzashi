@@ -11,4 +11,8 @@ html
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand kanzashi
     .container
+      - if notice
+        p.alert.alert-notice #{ notice }
+      - if alert
+        p.alert.alert-warning #{ alert }
       = yield

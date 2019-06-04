@@ -75,3 +75,6 @@ gem 'html2slim'
 gem 'devise'
 
 gem 'bootstrap'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
