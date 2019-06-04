@@ -85,4 +85,20 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
   end
+
+  describe 'ログアウト機能' do
+    before do
+      user.save
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      click_on 'Log in'
+    end
+
+    it 'ログアウトをクリックするとログアウトに成功し、ログイン画面に遷移する' do
+      click_on 'ログアウト'
+      expect(page).to have_content 'ログアウトしました。'
+      expect(page).to have_content 'Log in'
+    end
+  end
 end
