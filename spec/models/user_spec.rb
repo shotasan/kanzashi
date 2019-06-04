@@ -46,6 +46,12 @@ RSpec.describe User, type: :model do
         expect(user.errors[:password]).to include('が入力されていません。')
       end
 
+      it 'パスワードが6文字未満だと無効な状態であること' do
+        user.password = 'a' * 5
+        user.valid?
+        expect(user.errors[:password]).to include('は6文字以上に設定して下さい。')
+      end
+
       it 'プロフィールが300文字以内なら有効な状態であること' do
         user.profile = 'a' * 300
         expect(user).to be_valid
