@@ -6,4 +6,21 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :profile, length: { maximum: 300 }
+
+  # ユーザー編集でパスワードの入力を不要にし、パスワードの変更も可能にするためのメソッド
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    # パスワードの入力が無ければparamsからpasswordとpassword_confirmationを削除し既存パスワードを変更しないようにする
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    # バリデーションでparamsが正当か確認し、trueかfalseをresultに代入する。
+    # clean_up_passwordsで既存のパスワードをリセットする。
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 end
