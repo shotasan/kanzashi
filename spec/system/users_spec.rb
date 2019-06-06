@@ -86,7 +86,7 @@ RSpec.describe 'ユーザー機能', type: :system do
     end
   end
 
-  describe 'ログアウト機能' do
+  describe 'ログイン後の機能' do
     before do
       user.save
       visit new_user_session_path
@@ -95,10 +95,55 @@ RSpec.describe 'ユーザー機能', type: :system do
       click_on 'Log in'
     end
 
-    it 'ログアウトをクリックするとログアウトに成功し、ログイン画面に遷移する' do
-      click_on 'ログアウト'
-      expect(page).to have_content 'ログアウトしました。'
-      expect(page).to have_content 'Log in'
+    describe 'ログアウト機能' do
+      it 'ログアウトをクリックするとログアウトに成功し、ログイン画面に遷移する' do
+        click_on 'ログアウト'
+        expect(page).to have_content 'ログアウトしました。'
+        expect(page).to have_content 'Log in'
+      end
+    end
+
+    describe 'アカウント編集機能' do
+      before do
+        visit edit_user_registration_path
+        fill_in 'ユーザー名', with: 'edit_user'
+        fill_in 'メールアドレス', with: 'edit@example.com'
+        fill_in 'プロフィール', with: 'Edit Test'
+      end
+
+      context '編集に成功する場合' do
+        it '編集に成功し、ユーザー詳細画面に遷移する' do
+          click_on 'Update'
+          expect(page).to have_content 'アカウント情報を変更しました。'
+          expect(page).to have_content 'edit_user'
+          expect(page).to have_content 'edit@example.com'
+          expect(page).to have_content 'Edit Test'
+        end
+      end
+
+      context '編集に失敗する場合' do
+        it 'ユーザー名が空欄だと警告が表示される' do
+          fill_in 'ユーザー名', with: ''
+          click_on 'Update'
+          expect(page).to have_content 'ユーザー名 が入力されていません。'
+          expect(page).to have_selector '.alert'
+        end
+
+        it 'メールアドレスが空欄だと警告が表示される' do
+          fill_in 'メールアドレス', with: ''
+          click_on 'Update'
+          expect(page).to have_content 'メールアドレス が入力されていません。'
+          expect(page).to have_selector '.alert'
+        end
+
+        it 'パスワードと確認用パスワードが不一致だと警告が表示される' do
+          fill_in 'パスワード', with: 'edit_password'
+          fill_in '確認用パスワード', with: 'wrong_password'
+          click_on 'Update'
+          expect(page).to have_content '確認用パスワード が内容とあっていません。'
+          expect(page).to have_selector '.alert'
+        end
+      end
     end
   end
 end
