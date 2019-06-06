@@ -7,3 +7,4 @@ ja:
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
+        profile: "プロフィール"
