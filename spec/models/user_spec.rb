@@ -64,4 +64,46 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '編集機能のテスト' do
+    let(:user) { FactoryBot.create(:user) }
+
+    context 'update_without_current_passwordのテスト' do
+      context '正常なparamsを受け取った場合' do
+        before do
+          params = { name: 'edit_user', email: 'test@test.com', profile: 'This is TestUser', password: 'change_pass', password_confirmation: 'change_pass' }
+          @result = user.update_without_current_password(params)
+        end
+
+        it '正常なparamsを受け取るとtrueを返す' do
+          expect(@result).to be true
+        end
+
+        it '受け取ったparamsの値で更新される' do
+          expect(user.name).to eq 'edit_user'
+          expect(user.email).to eq 'test@test.com'
+          expect(user.profile).to eq 'This is TestUser'
+          expect(user.valid_password?('change_pass')).to be true
+        end
+      end
+
+      context '不正なparamsを受け取った場合' do
+        it 'nameが空ならfalseを返す' do
+          result = user.update_without_current_password({ name: '' })
+          expect(result).to be false
+        end
+
+        it 'emailが空ならfalseを返す' do
+          result = user.update_without_current_password({ email: '' })
+          expect(result).to be false
+        end
+      end
+
+      it 'passwordの入力が無ければ現在のパスワードが変更されない' do
+        params = { name: 'edit_user', email: 'test@test.com', profile: 'This is TestUser', password: '', password_confirmation: '' }
+        @result = user.update_without_current_password(params)
+        expect(user.valid_password?('password')).to be true
+      end
+    end
+  end
 end
