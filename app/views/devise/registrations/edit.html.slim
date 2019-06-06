@@ -6,15 +6,15 @@
   .form-group
     = f.label :name
     br
-    = f.text_field :name, autofocus: true, autocomplete: "name"
+    = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
   .form-group
     = f.label :email
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
   .form-group
     = f.label :profile
     br
-    = f.text_area :profile, autofocus: true
+    = f.text_area :profile, autofocus: true, class: 'form-control'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
       | Currently waiting confirmation for: 
@@ -22,23 +22,20 @@
   .form-group
     = f.label :password
     i
-      | (leave blank if you don't want to change it)
+      | (変更したくない場合は空白のままにしてください。)
     br
-    = f.password_field :password, autocomplete: "new-password"
+    = f.password_field :password, autocomplete: "new-password", class: 'form-control'
     - if @minimum_password_length
       br
       em
         = @minimum_password_length
-        |  characters minimum
+        |  文字以上で入力してください。
   .form-group
     = f.label :password_confirmation
     br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
   .actions
-    = f.submit "Update"
-h3
-  | アカウントの削除
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+    = f.submit "更新する", class: 'btn btn-primary'
+
+= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
 = link_to "Back", :back
