@@ -1,6 +1,7 @@
 class CreateReviews < ActiveRecord::Migration[5.2]
   def change
     create_table :reviews do |t|
+      t.references :user, foreign_key: true
       t.boolean :original?, null: false, default: false
       t.string :title, null: false, default: ''
       t.text :content, null: false, default: ''
@@ -12,7 +13,6 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer :rich, null: false
       t.integer :sweet, null: false
       t.integer :aroma, null: false
-      t.references :user, foreign_key: true
 
       t.timestamps
     end
