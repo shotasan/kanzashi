@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_165408) do
+ActiveRecord::Schema.define(version: 2019_06_10_172836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_165408) do
     t.boolean "original?", default: false, null: false
     t.string "title", default: "", null: false
     t.text "content", default: "", null: false
-    t.string "image", default: "", null: false
     t.date "drank_on", null: false
     t.integer "rating", null: false
     t.integer "bitter", null: false
