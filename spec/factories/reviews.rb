@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :review do
     original? { false }
-    titile { "MyString" }
+    title { "MyString" }
     content { "MyText" }
-    image { "MyString" }
     drank_on { "2019-06-08" }
     rating { 1 }
     bitter { 1 }
@@ -11,6 +10,6 @@ FactoryBot.define do
     rich { 1 }
     sweet { 1 }
     aroma { 1 }
-    user { nil }
+    user
   end
 end

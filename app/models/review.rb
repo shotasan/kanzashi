@@ -7,5 +7,5 @@ class Review < ApplicationRecord
   validates :content, presence: true, length: { maximum: 1_000 }
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma,
             presence: true,
-            inclusion: { in: %w[1 2 3 4 5] }
+            inclusion: { in: [*1..5] }
 end
