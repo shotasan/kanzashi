@@ -999,6 +999,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="mini_magick (vbundled(4.9.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/mini_magick-4.9.3/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/mini_magick-4.9.3/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="mini_mime (vbundled(1.0.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

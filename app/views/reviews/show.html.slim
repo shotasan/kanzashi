@@ -14,7 +14,7 @@ table.table.table-hover
       td= @review.content
     tr
       th= Review.human_attribute_name(:image)
-      td= image_tag @review.image if @review.image.attached?
+      td= image_tag @review.image.variant(resize: "480x320") if @review.image.attached?
     tr
       th= Review.human_attribute_name(:created_at)
       td= @review.created_at
