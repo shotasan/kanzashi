@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_063536) do
+ActiveRecord::Schema.define(version: 2019_06_11_070339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(version: 2019_06_11_063536) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "targets", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "bean_id"
+    t.string "roasted", default: "", null: false
+    t.date "roasted_on", null: false
+    t.string "grind", default: "", null: false
+    t.integer "amount", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bean_id"], name: "index_targets_on_bean_id"
+    t.index ["review_id"], name: "index_targets_on_review_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.text "profile"
@@ -77,4 +90,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_063536) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reviews", "users"
+  add_foreign_key "targets", "beans"
+  add_foreign_key "targets", "reviews"
 end
