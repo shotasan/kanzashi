@@ -1,0 +1,24 @@
+h1 Reviews#show
+.nav.justify-content-end
+  = link_to '新規', new_review_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Review.human_attribute_name(:id)
+      td= @review.id
+    tr
+      th= Review.human_attribute_name(:title)
+      td= @review.title
+    tr
+      th= Review.human_attribute_name(:content)
+      td= @review.content
+    tr
+      th= Review.human_attribute_name(:image)
+      td= image_tag @review.image.variant(resize: "480x320") if @review.image.attached?
+    tr
+      th= Review.human_attribute_name(:created_at)
+      td= @review.created_at
+    tr
+      th= Review.human_attribute_name(:updated_at)
+      td= @review.updated_at
+p Find me in app/views/reviews/show.html.slim

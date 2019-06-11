@@ -1,0 +1,38 @@
+= form_with(model: review, local: true) do |form|
+  = render "devise/shared/error_messages", resource: review
+
+  .form-check
+    = form.check_box "original??", {class: 'form-check-input'}, true, false
+    = form.label :original?, class: 'form-check-label'
+  .form-group
+    = form.label :title
+    = form.text_field :title, class: 'form-control'
+  .form-group
+    = form.label :content
+    = form.text_area :content, class: 'form-control'
+  .form-group
+    = form.label :image
+    = form.file_field :image, class: 'form-control-file'
+  .form-group
+    = form.label :drank_on
+    = form.date_field :drank_on, value: Date.today, class: 'd-block'
+  .form-group
+    = form.label :rating
+    = form.select :rating, rating_rank
+  .form-group
+    = form.label :bitter
+    = form.select :bitter, rating_rank
+  .form-group
+    = form.label :acidity
+    = form.select :acidity, rating_rank
+  .form-group
+    = form.label :rich
+    = form.select :rich, rating_rank
+  .form-group
+    = form.label :sweet
+    = form.select :sweet, rating_rank
+  .form-group
+    = form.label :aroma
+    = form.select :aroma, rating_rank
+  .actions
+    = form.submit "投稿する", class: 'btn btn-primary'
