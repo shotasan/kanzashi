@@ -8,8 +8,10 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-    @bean = Bean.new
-    @target = Target.new
+    2.times do
+      @review.beans.build
+      @review.targets.build
+    end
   end
 
   def edit
@@ -17,17 +19,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(review_params)
-    @bean = Bean.new(bean_params)
-    @target = Target.new(target_params)
+    @beans = bean_params.map { |params| Bean.create(params) }
+    @targets = target_params.map { |params| @review.targets.build(params) }
+    @targets.zip(@beans) { |target, bean| target.bean_id = bean.id }
 
-    if @review.save && @bean.save
-      @target.review_id = @review.id
-      @target.bean_id = @bean.id
-      if @target.save
-        redirect_to review_url(@review), notice: '登録に成功しました。'
-      else
-        render :new
-      end
+    if @review.save
+      redirect_to review_url(@review), notice: '登録に成功しました。'
     else
       render :new
     end
@@ -46,10 +43,10 @@ class ReviewsController < ApplicationController
   end
 
   def bean_params
-    params.require(:bean).permit(:name, :country, :plantation)
+    params.require(:bean).map { |bean| bean.permit(:name, :country, :plantation) }
   end
 
   def target_params
-    params.require(:target).permit(:roasted, :roasted_on, :grind, :amount)
+    params.require(:target).map { |target| target.permit(:roasted, :roasted_on, :grind, :amount) }
   end
 end

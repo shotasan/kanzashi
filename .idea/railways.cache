@@ -25,14 +25,6 @@
                           PATCH  /reviews/:id(.:format)                                                                   reviews#update
                           PUT    /reviews/:id(.:format)                                                                   reviews#update
                           DELETE /reviews/:id(.:format)                                                                   reviews#destroy
-                    beans GET    /beans(.:format)                                                                         beans#index
-                          POST   /beans(.:format)                                                                         beans#create
-                 new_bean GET    /beans/new(.:format)                                                                     beans#new
-                edit_bean GET    /beans/:id/edit(.:format)                                                                beans#edit
-                     bean GET    /beans/:id(.:format)                                                                     beans#show
-                          PATCH  /beans/:id(.:format)                                                                     beans#update
-                          PUT    /beans/:id(.:format)                                                                     beans#update
-                          DELETE /beans/:id(.:format)                                                                     beans#destroy
        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show

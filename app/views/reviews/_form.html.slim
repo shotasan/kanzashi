@@ -1,30 +1,5 @@
-= form_with(model: review, url: reviews_path, local: true) do |form|
+= form_with(model: review, local: true) do |form|
   = render "devise/shared/error_messages", resource: review
-
-  = fields_for :bean do |form|
-    .form-group
-      = form.label :name
-      = form.text_field :name, class: 'form-control'
-    .form-group
-      = form.label :country
-      = form.text_field :country, class: 'form-control'
-    .form-group
-      = form.label :plantation
-      = form.text_field :plantation, class: 'form-control'
-
-  = fields_for :target do |form|
-    .form-group
-      = form.label :roasted
-      = form.text_field :roasted, class: 'form-control'
-    .form-group
-      = form.label :roasted_on
-      = form.date_field :roasted_on, value: Date.today, class: 'd-block'
-    .form-group
-      = form.label :grind
-      = form.text_field :grind, class: 'form-control'
-    .form-group
-      = form.label :amount
-      = form.number_field :amount
 
   .form-check
     = form.check_box "original??", {class: 'form-check-input'}, true, false
@@ -59,5 +34,33 @@
   .form-group
     = form.label :aroma
     = form.select :aroma, rating_rank
+
+  - review.beans.each do |bean|
+    = fields_for "bean[]", bean do |bean_form|
+      .form-group
+        = bean_form.label :name
+        = bean_form.text_field :name, class: 'form-control'
+      .form-group
+        = bean_form.label :country
+        = bean_form.text_field :country, class: 'form-control'
+      .form-group
+        = bean_form.label :plantation
+        = bean_form.text_field :plantation, class: 'form-control'
+
+  - review.targets.each do |target|
+    = fields_for "target[]", target do |target_form|
+      .form-group
+        = target_form.label :roasted
+        = target_form.text_field :roasted, class: 'form-control'
+      .form-group
+        = target_form.label :roasted_on
+        = target_form.date_field :roasted_on, value: Date.today, class: 'd-block'
+      .form-group
+        = target_form.label :grind
+        = target_form.text_field :grind, class: 'form-control'
+      .form-group
+        = target_form.label :amount
+        = target_form.number_field :amount
+
   .actions
     = form.submit "投稿する", class: 'btn btn-primary'
