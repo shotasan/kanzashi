@@ -8,9 +8,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-    2.times do
-      @review.beans.build
-      @review.targets.build
+
+    if params[:blend]
+      2.times do
+        @review.beans.build
+        @review.targets.build
+      end
+    else
+      @bean = Bean.new
+      @target = Target.new
     end
   end
 
@@ -19,15 +25,27 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(review_params)
-    @beans = bean_params.map { |params| Bean.create(params) }
-    @targets = target_params.map { |params| @review.targets.build(params) }
-    @targets.zip(@beans) { |target, bean| target.bean_id = bean.id }
+    @target = Target.new(target_params)
+    @bean = Bean.new
 
-    if @review.save
-      redirect_to review_url(@review), notice: '登録に成功しました。'
-    else
-      render :new
+    @review.transaction do
+      @bean = Bean.create!(bean_params)
+      @target.bean_id = @bean.id
+      @review.targets << @target
+    # @targets = target_params.map { |params| @review.targets.build(params) }
+    # @beans = Bean.new
+    #
+    # Review.transaction do
+    #   @beans = bean_params.map { |params| Bean.create!(params) }
+    #   @review.beans = @beans
+    #   @targets.zip(@beans) { |target, bean| target.bean_id = bean.id }
+    # binding.pry
+      @review.save!
     end
+    redirect_to review_url(@review), notice: '登録に成功しました。'
+  rescue
+    @review.valid?
+    render :new
   end
 
   def update
@@ -43,10 +61,17 @@ class ReviewsController < ApplicationController
   end
 
   def bean_params
-    params.require(:bean).map { |bean| bean.permit(:name, :country, :plantation) }
+    params.require(:bean).permit(:name, :country, :plantation)
   end
+  # def bean_params
+  #   params.require(:bean).map { |bean| bean.permit(:name, :country, :plantation) }
+  # end
 
   def target_params
-    params.require(:target).map { |target| target.permit(:roasted, :roasted_on, :grind, :amount) }
+    params.require(:target).permit(:roasted, :roasted_on, :grind, :amount)
   end
+
+    # def target_params
+  #   params.require(:target).map { |target| target.permit(:roasted, :roasted_on, :grind, :amount) }
+  # end
 end
