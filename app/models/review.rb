@@ -1,7 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
   has_many :targets, dependent: :destroy
-  has_many :beans, through: :targets
   has_one_attached :image
 
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma, presence: true
