@@ -37,11 +37,13 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
   end
 
   create_table "beans", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name", null: false
     t.string "country", default: "", null: false
     t.string "plantation", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beans_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "beans", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "targets", "beans"
   add_foreign_key "targets", "reviews"
