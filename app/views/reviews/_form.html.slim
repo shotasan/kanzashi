@@ -53,7 +53,7 @@
       = target_form.text_field :grind, class: 'form-control'
     .form-group
       = target_form.label :amount
-      = target_form.number_field :amount
+      = target_form.number_field :amount, in: 0..100
 
   .actions
     = form.submit "投稿する", class: 'btn btn-primary'
