@@ -2,9 +2,14 @@ ja:
   activerecord:
     models:
       user: "ユーザー"
+      bean: "豆"
     attributes:
       user:
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
         profile: "プロフィール"
+      bean:
+        name: "名称"
+        country: "原産国"
+        plantation: "農園"
