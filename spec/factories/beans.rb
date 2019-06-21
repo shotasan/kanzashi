@@ -3,5 +3,6 @@ FactoryBot.define do
     name { "MyString" }
     country { "MyString" }
     plantation { "MyString" }
+    user
   end
 end
