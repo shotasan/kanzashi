@@ -26,28 +26,28 @@ RSpec.describe 'ユーザー機能', type: :system do
       it '名前を空欄で入力すると警告が表示される' do
         fill_in 'ユーザー名', with: ''
         click_on 'Sign up'
-        expect(page).to have_content 'ユーザー名 が入力されていません。'
+        expect(page).to have_content 'ユーザー名を入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'メールアドレスを空欄で入力すると警告が表示される' do
         fill_in 'メールアドレス', with: ''
         click_on 'Sign up'
-        expect(page).to have_content 'メールアドレス が入力されていません。'
+        expect(page).to have_content 'メールアドレスを入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'パスワードを空欄で入力すると警告が表示される' do
         fill_in 'パスワード', with: ''
         click_on 'Sign up'
-        expect(page).to have_content 'パスワード が入力されていません。'
+        expect(page).to have_content 'パスワードを入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'パスワードと確認用パスワードが不一致だと警告が表示される' do
         fill_in 'パスワード', with: 'wrong_password'
         click_on 'Sign up'
-        expect(page).to have_content '確認用パスワード が内容とあっていません。'
+        expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
         expect(page).to have_selector '.alert'
       end
     end
@@ -125,14 +125,14 @@ RSpec.describe 'ユーザー機能', type: :system do
         it 'ユーザー名が空欄だと警告が表示される' do
           fill_in 'ユーザー名', with: ''
           click_on '更新する'
-          expect(page).to have_content 'ユーザー名 が入力されていません。'
+          expect(page).to have_content 'ユーザー名を入力してください'
           expect(page).to have_selector '.alert'
         end
 
         it 'メールアドレスが空欄だと警告が表示される' do
           fill_in 'メールアドレス', with: ''
           click_on '更新する'
-          expect(page).to have_content 'メールアドレス が入力されていません。'
+          expect(page).to have_content 'メールアドレスを入力してください'
           expect(page).to have_selector '.alert'
         end
 
@@ -140,7 +140,7 @@ RSpec.describe 'ユーザー機能', type: :system do
           fill_in 'パスワード', with: 'edit_password'
           fill_in '確認用パスワード', with: 'wrong_password'
           click_on '更新する'
-          expect(page).to have_content '確認用パスワード が内容とあっていません。'
+          expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
           expect(page).to have_selector '.alert'
         end
       end
