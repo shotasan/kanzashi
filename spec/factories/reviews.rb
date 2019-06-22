@@ -10,6 +10,5 @@ FactoryBot.define do
     rich { 1 }
     sweet { 1 }
     aroma { 1 }
-    user
   end
 end
