@@ -7,7 +7,6 @@ RSpec.describe Target, type: :model do
       it 'amountが0未満なら無効な状態であること' do
         target.amount = -1
         target.valid?
-        # binding.pry
         expect(target.errors[:amount]).to include('は0以上の値にしてください')
       end
 
