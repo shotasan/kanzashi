@@ -1,8 +1,8 @@
 class BeansController < ApplicationController
-  def index
-  end
+  before_action :set_bean, only: %i[edit update destroy]
 
-  def show
+  def index
+    @beans = Bean.all
   end
 
   def new
@@ -19,16 +19,26 @@ class BeansController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    if @bean.update(bean_params)
+      redirect_to beans_url, notice: '豆の編集に成功しました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @bean.destroy
+    redirect_to beans_url, notice: "#{ @bean.name }を削除しました。"
   end
 
   private
+
+  def set_bean
+    @bean = current_user.beans.find(params[:id])
+  end
 
   def bean_params
     params.require(:bean).permit(:name, :country, :plantation)
