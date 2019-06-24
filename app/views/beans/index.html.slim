@@ -10,7 +10,7 @@ table.table.table-striped
 
   - @beans.each do |bean|
     tr
-      td = bean.name
+      td.bean_name = bean.name
       td = bean.country
       td = bean.plantation
       td = bean.user.name
