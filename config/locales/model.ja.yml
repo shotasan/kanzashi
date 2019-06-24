@@ -33,6 +33,7 @@ ja:
         aroma: "香り"
       review/targets:
         bean: "選択する豆"
+        bean_id: "選択した豆"
       target:
         bean_id: "選択する豆"
         roasted: "焙煎"
