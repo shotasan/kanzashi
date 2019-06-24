@@ -6,8 +6,8 @@ RSpec.describe 'レビュー機能' do
   include Devise::Test::IntegrationHelpers
 
   let(:current_user) { FactoryBot.create(:user) }
-  let(:review){ FactoryBot.build(:review) }
-  let!(:bean){ FactoryBot.create(:bean, user: current_user) }
+  let!(:current_user_bean){ FactoryBot.create(:bean, user: current_user) }
+  let(:review){ FactoryBot.build(:review, user: current_user) }
 
   describe '新規登録機能' do
     before do
@@ -53,7 +53,6 @@ RSpec.describe 'レビュー機能' do
         expect(page).to have_content 'レビュー内容は1000文字以内で入力してください'
         expect(page).to have_selector '.alert'
       end
-
     end
 
     context '表示に関するテスト' do
