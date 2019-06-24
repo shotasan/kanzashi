@@ -2,9 +2,42 @@ ja:
   activerecord:
     models:
       user: "ユーザー"
+      bean: "豆"
+      review: "レビュー"
+      target: "ターゲット"
+      bean/target: "選択する豆"
+      bean/targets: "選択する豆"
+      beans/target: "選択する豆"
+      beans/targets: "選択する豆"
     attributes:
       user:
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
         profile: "プロフィール"
+      bean:
+        name: "名称"
+        country: "原産国"
+        plantation: "農園"
+      review:
+        bean: "選択する豆"
+        title: "タイトル"
+        content: "レビュー内容"
+        image: "画像"
+        drank_on: "飲んだ日"
+        rating: "総合評価"
+        bitter: "苦味"
+        acidity: "酸味"
+        rich: "コク"
+        sweet: "甘み"
+        aroma: "香り"
+      review/targets:
+        bean: "選択する豆"
+        bean_id: "選択した豆"
+      target:
+        bean_id: "選択する豆"
+        roasted: "焙煎"
+        roasted_on: "焙煎日"
+        grind: "挽き方"
+        amount: "入れた量"
+        bean: "選択する豆"

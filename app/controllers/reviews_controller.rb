@@ -8,6 +8,11 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
+    if params[:blend]
+      3.times { @review.targets.build }
+    else
+      @review.targets.build
+    end
   end
 
   def edit
@@ -32,6 +37,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:original?, :title, :content, :image, :drank_on, :rating, :bitter, :acidity, :rich, :sweet, :aroma)
+    params.require(:review).permit(:original?, :title, :content, :image, :drank_on, :rating, :bitter, :acidity, :rich, :sweet, :aroma,
+                                   targets_attributes: %i[bean_id roasted roasted_on grind amount])
   end
 end

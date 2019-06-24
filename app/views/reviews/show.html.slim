@@ -1,6 +1,5 @@
-h1 Reviews#show
-.nav.justify-content-end
-  = link_to '新規', new_review_path, class: 'nav-link'
+h3 レビュー詳細
+
 table.table.table-hover
   tbody
     tr
@@ -21,4 +20,3 @@ table.table.table-hover
     tr
       th= Review.human_attribute_name(:updated_at)
       td= @review.updated_at
-p Find me in app/views/reviews/show.html.slim

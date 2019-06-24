@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
       it '名前が無ければ無効な状態であること' do
         user.name = ''
         user.valid?
-        expect(user.errors[:name]).to include('が入力されていません。')
+        expect(user.errors[:name]).to include('を入力してください')
       end
 
       it '名前が30文字以下なら有効な状態であること' do
@@ -24,32 +24,32 @@ RSpec.describe User, type: :model do
       it '名前が30文字より多いなら無効な状態であること' do
         user.name = 'a' * 31
         user.valid?
-        expect(user.errors[:name]).to include('は30文字以下に設定して下さい。')
+        expect(user.errors[:name]).to include('は30文字以内で入力してください')
       end
 
       it 'メールアドレスが無ければ無効な状態であること' do
         user.email = ''
         user.valid?
-        expect(user.errors[:email]).to include('が入力されていません。')
+        expect(user.errors[:email]).to include('を入力してください')
       end
 
       it 'メールアドレスが登録済みであれば無効な状態であること' do
         user.save
         @second_user = FactoryBot.build(:user, email: user.email)
         @second_user.valid?
-        expect(@second_user.errors[:email]).to include('は既に使用されています。')
+        expect(@second_user.errors[:email]).to include('はすでに存在します')
       end
 
       it 'パスワードが無ければ無効な状態であること' do
         user.password = ''
         user.valid?
-        expect(user.errors[:password]).to include('が入力されていません。')
+        expect(user.errors[:password]).to include('を入力してください')
       end
 
       it 'パスワードが6文字未満だと無効な状態であること' do
         user.password = 'a' * 5
         user.valid?
-        expect(user.errors[:password]).to include('は6文字以上に設定して下さい。')
+        expect(user.errors[:password]).to include('は6文字以上で入力してください')
       end
 
       it 'プロフィールが300文字以内なら有効な状態であること' do
@@ -60,7 +60,7 @@ RSpec.describe User, type: :model do
       it 'プロフィールが300文字より多いなら無効な状態であること' do
         user.profile = 'a' * 301
         user.valid?
-        expect(user.errors[:profile]).to include('は300文字以下に設定して下さい。')
+        expect(user.errors[:profile]).to include('は300文字以内で入力してください')
       end
     end
   end
