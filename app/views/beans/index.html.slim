@@ -1,2 +1,21 @@
-h1 Beans#index
-p Find me in app/views/beans/index.html.slim
+h1 豆の一覧
+br
+table.table.table-striped
+  tr.table-info
+    th = Bean.human_attribute_name(:name)
+    th = Bean.human_attribute_name(:country)
+    th = Bean.human_attribute_name(:plantation)
+    th = User.human_attribute_name(:name)
+    th
+
+  - @beans.each do |bean|
+    tr
+      td = bean.name
+      td = bean.country
+      td = bean.plantation
+      td = bean.user.name
+      td.button
+        - if bean.user == current_user
+          = link_to '編集', edit_bean_path(bean), class: 'btn btn-primary edit'
+          = link_to '削除', bean_path(bean), method: :delete,
+                  data: { confirm: "#{ bean.name }を削除します。よろしいですか？" }, class: 'btn btn-danger'
