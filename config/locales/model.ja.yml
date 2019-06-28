@@ -5,10 +5,6 @@ ja:
       bean: "豆"
       review: "レビュー"
       target: "ターゲット"
-      bean/target: "選択する豆"
-      bean/targets: "選択する豆"
-      beans/target: "選択する豆"
-      beans/targets: "選択する豆"
     attributes:
       user:
         name: "ユーザー名"
@@ -36,8 +32,11 @@ ja:
         bean_id: "選択した豆"
       target:
         bean_id: "選択する豆"
-        roasted: "焙煎"
+        roasted: "焙煎方法"
         roasted_on: "焙煎日"
         grind: "挽き方"
         amount: "入れた量"
         bean: "選択する豆"
+      targets:
+        roasted: "焙煎方法"
+        grind: "挽き方"
