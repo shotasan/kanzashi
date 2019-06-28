@@ -1,0 +1,11 @@
+.col-md-4
+  .card.mt-5
+    h5.card-header = review.title
+    = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top' if review.image.attached?
+    .card-body
+      h5.card-title
+      h4 = review.user.name
+      p.card-text
+        = truncate(strip_tags(review.content), length: 30)
+      p.card-text.text-muted
+        = review.created_at
