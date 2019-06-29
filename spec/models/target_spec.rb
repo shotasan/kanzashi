@@ -7,13 +7,6 @@ RSpec.describe Target, type: :model do
     let(:target){ review.targets.first }
 
     context 'バリデーションのテスト' do
-      before do
-        # @first_user = create(:user)
-        # @first_bean = @first_user.bean.create(name: 'FirstUser Bean')
-        # @second_user = create(:user)
-        # @second_bean = @second_user.bean.create(name: 'SecondUser Bean')
-      end
-
       it 'amountが0未満なら無効な状態であること' do
         target.amount = -1
         target.valid?
@@ -32,7 +25,7 @@ RSpec.describe Target, type: :model do
         expect(target.errors[:bean]).to include('を入力してください')
       end
 
-      it 'bean_idに自身が登録したBean以外を入力すると無効な状態であること' do
+      it 'bean_idに自身が登録したBean以外を入力すると有効な状態であること' do
         @first_user_bean = first_user.beans.create(name: 'Test')
         target.bean_id = @first_user_bean.id
         expect(target).to be_valid
@@ -43,6 +36,18 @@ RSpec.describe Target, type: :model do
         target.bean_id = @another_user_bean.id
         target.valid?
         expect(target.errors[:bean_id]).to include('は登録されていません')
+      end
+
+      it 'roastedに選択肢以外の値を入力すると無効な状態であること' do
+        target.roasted = '不正な値'
+        target.valid?
+        expect(target.errors[:roasted]).to include('は一覧にありません')
+      end
+
+      it 'grindに選択肢以外の値を入力すると無効な状態であること' do
+        target.grind = '不正な値'
+        target.valid?
+        expect(target.errors[:grind]).to include('は一覧にありません')
       end
     end
   end
