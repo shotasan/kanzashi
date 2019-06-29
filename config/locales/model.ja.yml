@@ -35,7 +35,7 @@ ja:
         roasted: "焙煎方法"
         roasted_on: "焙煎日"
         grind: "挽き方"
-        amount: "入れた量"
+        amount: "投入量(グラム)"
         bean: "選択する豆"
       targets:
         roasted: "焙煎方法"
