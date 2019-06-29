@@ -56,13 +56,21 @@ RSpec.describe 'レビュー機能' do
     end
 
     context '表示に関するテスト' do
-      it '評価のセレクトボックスで1から5の数値が選択できるようになっている' do
-        expect(page).to have_select('総合評価', options: %w[1 2 3 4 5])
-        expect(page).to have_select('苦味', options: %w[1 2 3 4 5])
-        expect(page).to have_select('酸味', options: %w[1 2 3 4 5])
-        expect(page).to have_select('コク', options: %w[1 2 3 4 5])
-        expect(page).to have_select('甘み', options: %w[1 2 3 4 5])
-        expect(page).to have_select('香り', options: %w[1 2 3 4 5])
+      it '焙煎方法のセレクトボックスに項目が存在すること' do
+        expect(page).to have_select('roasted', options: ['', 'ライトロースト', 'シナモンロースト', 'ミディアムロースト', 'ハイロースト', 'シティロースト', 'フルシティロースト', 'フレンチロースト', 'イタリアンロースト'])
+      end
+
+      it '挽き方のセレクトボックスに項目が存在すること ' do
+        expect(page).to have_select('grind', options: ['', '極細挽き', '細挽き', '中細挽き', '中挽き', '粗挽き'])
+      end
+
+      it '評価の星を表示するためのIDが表示されている' do
+        expect(page).to have_selector '#rating-form'
+        expect(page).to have_selector '#bitter-form'
+        expect(page).to have_selector '#acidity-form'
+        expect(page).to have_selector '#rich-form'
+        expect(page).to have_selector '#sweet-form'
+        expect(page).to have_selector '#aroma-form'
       end
     end
   end
