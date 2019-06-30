@@ -49,6 +49,12 @@ RSpec.describe Target, type: :model do
         target.valid?
         expect(target.errors[:grind]).to include('は一覧にありません')
       end
+
+      it 'roasted_onに未来の日付を入力すると無効な状態であること' do
+        target.roasted_on = Date.tomorrow
+        target.valid?
+        expect(target.errors[:roasted_on]).to include('に未来の日付は入力できません')
+      end
     end
   end
 end
