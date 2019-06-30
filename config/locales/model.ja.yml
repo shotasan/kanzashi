@@ -40,3 +40,4 @@ ja:
       targets:
         roasted: "焙煎方法"
         grind: "挽き方"
+        roasted_on: "焙煎日"
