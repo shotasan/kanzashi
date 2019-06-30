@@ -102,6 +102,12 @@ RSpec.describe Review, type: :model do
         review.valid?
         expect(review.errors[:aroma]).to include('は一覧にありません')
       end
+
+      it 'roasted_onに未来の日付を入力すると無効な状態であること' do
+        review.drank_on = Date.tomorrow
+        review.valid?
+        expect(review.errors[:drank_on]).to include('に未来の日付は入力できません')
+      end
     end
   end
 end
