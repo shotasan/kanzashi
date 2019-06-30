@@ -12,12 +12,19 @@ class Review < ApplicationRecord
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma,
             presence: true,
             inclusion: { in: [*1..5] }
+  validate :future_date_prohibited
 
   private
 
   def image_nil
     unless self.image.attached?
       self.image.attach(io: File.open('app/assets/images/no_image.jpg'), filename: 'no_image.jpg', content_type: 'image/jpg')
+    end
+  end
+
+  def future_date_prohibited
+    if drank_on.present? && drank_on > Date.today
+      errors.add(:drank_on, "に未来の日付は入力できません")
     end
   end
 end
