@@ -3,20 +3,36 @@ h3 レビュー詳細
 table.table.table-hover
   tbody
     tr
-      th= Review.human_attribute_name(:id)
-      td= @review.id
-    tr
       th= Review.human_attribute_name(:title)
       td= @review.title
     tr
       th= Review.human_attribute_name(:content)
       td= @review.content
     tr
+      th= Review.human_attribute_name(:rating)
+      td.review-rating data-score="#{ @review.rating }"
+    tr
+      th= Review.human_attribute_name(:bitter)
+      td.review-rating data-score="#{ @review.bitter }"
+    tr
+      th= Review.human_attribute_name(:acidity)
+      td.review-rating data-score="#{ @review.acidity }"
+    tr
+      th= Review.human_attribute_name(:rich)
+      td.review-rating data-score="#{ @review.rich }"
+    tr
+      th= Review.human_attribute_name(:sweet)
+      td.review-rating data-score="#{ @review.sweet }"
+    tr
+      th= Review.human_attribute_name(:aroma)
+      td.review-rating data-score="#{ @review.aroma }"
+    tr
       th= Review.human_attribute_name(:image)
       td= image_tag @review.image.variant(resize: "480x320") if @review.image.attached?
     tr
       th= Review.human_attribute_name(:created_at)
       td= @review.created_at
-    tr
-      th= Review.human_attribute_name(:updated_at)
-      td= @review.updated_at
+
+- if current_user?(@review)
+  = link_to '編集', edit_review_path(@review), class: 'btn btn-primary'
+  = link_to '削除', review_path(@review), method: :delete, data: { confirm: "#{ @review.title }削除します。よろしいですか？" }, class: 'btn btn-danger'
