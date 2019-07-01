@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = current_user.reviews.find(params[:id])
   end
 
   def create
@@ -30,6 +31,13 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = current_user.reviews.find(params[:id])
+
+    if @review.update(review_params)
+      redirect_to review_path(@review), notice: '編集に成功しました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
