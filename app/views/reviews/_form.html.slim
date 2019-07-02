@@ -39,22 +39,22 @@
     .row
       .form-group.col-md-2
         = form.label :rating
-        #rating-form
+        #rating-form data-score=default_value(review.rating)
       .form-group.col-md-2
         = form.label :bitter
-        #bitter-form
+        #bitter-form data-score=default_value(review.bitter)
       .form-group.col-md-2
         = form.label :acidity
-        #acidity-form
+        #acidity-form data-score=default_value(review.acidity)
       .form-group.col-md-2
         = form.label :rich
-        #rich-form
+        #rich-form data-score=default_value(review.rich)
       .form-group.col-md-2
         = form.label :sweet
-        #sweet-form
+        #sweet-form data-score=default_value(review.sweet)
       .form-group.col-md-2
         = form.label :aroma
-        #aroma-form
+        #aroma-form data-score=default_value(review.aroma)
 
     .form-group.mt-5
       = form.label :content
