@@ -1,0 +1,19 @@
+= form_with(model: bean, local: true) do |form|
+  - if bean.errors.present?
+    ul#error_explanation.alert.alert-warning
+      - bean.errors.full_messages.each do |message|
+        li= message
+
+  .mx-auto.w-50
+    .form-group
+      = form.label :name
+      = form.text_field :name, class: 'form-control'
+    .form-group
+      = form.label :country
+      = form.text_field :country, class: 'form-control'
+    .form-group
+      = form.label :plantation
+      = form.text_field :plantation, class: 'form-control'
+
+    .actions
+      = form.submit "登録する", class: 'btn btn-primary float-right'
