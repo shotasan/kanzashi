@@ -24,7 +24,7 @@ class Review < ApplicationRecord
 
   def future_date_prohibited
     if drank_on.present? && drank_on > Date.today
-      errors.add(:drank_on, "に未来の日付は入力できません")
+      errors.add(:drank_on, 'に未来の日付は入力できません')
     end
   end
 end
