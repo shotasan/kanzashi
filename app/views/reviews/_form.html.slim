@@ -32,7 +32,9 @@
       = form.text_field :title, class: 'form-control'
     .form-group.mb-5
       = form.label :image
-      = form.file_field :image, class: 'form-control-file'
+      = form.file_field :image, data: { "image-tag-id" => "#preview-image" }, class: 'form-control-file image_file'
+      p.preview-area
+        img#preview-image alt="" src=""
     .form-group.mb-5
       = form.label :drank_on
       = form.date_field :drank_on, value: Date.today, class: 'd-block form-control'

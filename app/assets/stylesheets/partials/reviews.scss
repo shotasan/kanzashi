@@ -1,3 +1,13 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.preview-area {
+  text-align: center;
+
+  #preview-image {
+    height: 200px;
+    width: 300px;
+    margin: auto;
+    display: none;
+  }
+}
