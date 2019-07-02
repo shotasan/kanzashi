@@ -1,6 +1,6 @@
 .col-md-4
   .card.mt-5
-    h5.card-header = review.title
+    h5.card-header = link_to "#{ review.title }", review_path(review)
     = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top' if review.image.attached?
     .card-body
       h5.card-title
