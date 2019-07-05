@@ -2,20 +2,24 @@
 $(document).on('ready turbolinks:load',(function() {
     var rating_items = ['rating', 'bitter', 'acidity', 'rich', 'sweet', 'aroma'];
 
-    rating_items.forEach(function (value) {
+    // 新規作成画面での処理
+    rating_items.forEach(function(value) {
         $(`#${ value }-form`).raty({
             path: '/assets/',
             scoreName: `review[${value}]`
         })
     });
 
-    $('.review-rating').raty({
-        readOnly: true,
-        score: function() {
-            return $(this).attr('data-score');
-        },
-        path: '/assets/'
-    })
+    // 詳細画面での表示処理
+    rating_items.forEach(function(value) {
+        $(`.${ value }-rating`).raty({
+            readOnly: true,
+            score: function() {
+                return $(this).attr('data-score');
+            },
+            path: '/assets/'
+        })
+    });
 }));
 
 // 画像のプレビュー機能
@@ -45,6 +49,10 @@ $(document).on('ready turbolinks:load',(function() {
             // 画像の読み込み
             reader.readAsDataURL(file);
 
+            // テストのためにクラスを追加する処理
+            $(img_tag_id).addClass(file.name);
+
+            // 非表示状態のプレビュー欄を表示
             $('#preview-image').show()
         });
 
