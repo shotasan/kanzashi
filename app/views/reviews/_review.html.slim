@@ -8,4 +8,4 @@
       p.card-text
         = truncate(strip_tags(review.content), length: 30)
       p.card-text.text-muted
-        = review.created_at
+        = review.created_at.strftime("%H:%M - %Y年%m月%d日")
