@@ -1,6 +1,8 @@
-.col-md-4
-  .card.mt-5
-    h5.card-header = link_to "#{ review.title }", review_path(review)
+.col-md-4.mt-5
+  .card
+    h5.card-header
+      = link_to truncate(review.title, length: 10), review_path(review)
+      = straight_or_blend_tag(review)
     = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top' if review.image.attached?
     .card-body
       h5.card-title

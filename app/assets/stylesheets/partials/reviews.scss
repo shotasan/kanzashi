@@ -11,3 +11,28 @@
     display: none;
   }
 }
+
+.card {
+  height: 100%;
+
+  .card-header {
+    height: 3rem;
+    padding-right: 0;
+
+    .badge {
+      display: inline-block;
+      float: right;
+      transform: scale(0.7);
+    }
+    .tag-straight {
+      background-color: #664738;
+    }
+    .tag-blend {
+      background-color: #cc8d70;
+    }
+  }
+
+  .card-img-top {
+    height: 14rem;
+  }
+}

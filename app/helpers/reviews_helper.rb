@@ -10,4 +10,12 @@ module ReviewsHelper
   def default_value(value)
     (value ||= 1).to_s
   end
+
+  def straight_or_blend_tag(review)
+    if review.original?
+      content_tag(:span, 'ブレンド', class: 'badge badge-secondary tag-blend')
+    else
+      content_tag(:span, 'ストレート', class: 'badge badge-secondary tag-straight')
+    end
+  end
 end
