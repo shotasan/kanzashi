@@ -14,6 +14,8 @@ class Review < ApplicationRecord
             inclusion: { in: [*1..5] }
   validate :future_date_prohibited
 
+  scope :resent, -> { order(created_at: :desc) }
+
   private
 
   def image_nil
