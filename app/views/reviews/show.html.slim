@@ -10,22 +10,22 @@ table.table.table-hover
       td= @review.content
     tr
       th= Review.human_attribute_name(:rating)
-      td.review-rating data-score="#{ @review.rating }"
+      td.rating-rating data-score="#{ @review.rating }"
     tr
       th= Review.human_attribute_name(:bitter)
-      td.review-rating data-score="#{ @review.bitter }"
+      td.bitter-rating data-score="#{ @review.bitter }"
     tr
       th= Review.human_attribute_name(:acidity)
-      td.review-rating data-score="#{ @review.acidity }"
+      td.acidity-rating data-score="#{ @review.acidity }"
     tr
       th= Review.human_attribute_name(:rich)
-      td.review-rating data-score="#{ @review.rich }"
+      td.rich-rating data-score="#{ @review.rich }"
     tr
       th= Review.human_attribute_name(:sweet)
-      td.review-rating data-score="#{ @review.sweet }"
+      td.sweet-rating data-score="#{ @review.sweet }"
     tr
       th= Review.human_attribute_name(:aroma)
-      td.review-rating data-score="#{ @review.aroma }"
+      td.aroma-rating data-score="#{ @review.aroma }"
     tr
       th= Review.human_attribute_name(:image)
       td= image_tag @review.image.variant(resize: "480x320") if @review.image.attached?
