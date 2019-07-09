@@ -6,8 +6,10 @@
     = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top' if review.image.attached?
     .card-body
       h5.card-title
-      h4 = review.user.name
+        - review.target_beans.each do |bean_name|
+          p = bean_name
       p.card-text
         = truncate(strip_tags(review.content), length: 30)
       p.card-text.text-muted
         = review.created_at.strftime("%H:%M - %Y年%m月%d日")
+        = link_to review.user.name, user_path(review.user)
