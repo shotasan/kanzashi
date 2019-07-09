@@ -184,24 +184,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="archive-zip (vbundled(0.12.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="arel (vbundled(9.0.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -465,30 +447,6 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/childprocess-1.0.1/ext" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/childprocess-1.0.1/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="chromedriver-helper (vbundled(2.1.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
         </excluded>
       </library>
     </orderEntry>
@@ -843,19 +801,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="io-like (vbundled(0.3.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.0/lib" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.0/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="jaro_winkler (vbundled(1.5.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -891,6 +836,26 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jbuilder-2.9.1/test" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jbuilder-2.9.1/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jquery-rails (vbundled(4.3.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -2168,6 +2133,30 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/web-console-3.7.0/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="webdrivers (vbundled(4.0.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/support" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/support" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-4.0.1/support" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">

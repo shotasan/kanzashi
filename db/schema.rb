@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_070339) do
+ActiveRecord::Schema.define(version: 2019_06_28_115333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
     t.bigint "review_id"
     t.bigint "bean_id"
     t.string "roasted", default: "", null: false
-    t.date "roasted_on", null: false
+    t.date "roasted_on"
     t.string "grind", default: "", null: false
     t.integer "amount", default: 0, null: false
     t.datetime "created_at", null: false

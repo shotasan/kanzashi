@@ -4,56 +4,63 @@
       - review.errors.full_messages.each do |message|
         li= message
 
-  .form-group
-    = form.label :title
-    = form.text_field :title, class: 'form-control'
-  .form-group
-    = form.label :content
-    = form.text_area :content, class: 'form-control'
-  .form-group
-    = form.label :image
-    = form.file_field :image, class: 'form-control-file'
-  .form-group
-    = form.label :drank_on
-    = form.date_field :drank_on, value: Date.today, class: 'd-block'
-  .form-group
-    = form.label :rating
-    = form.select :rating, rating_rank
-  .form-group
-    = form.label :bitter
-    = form.select :bitter, rating_rank
-  .form-group
-    = form.label :acidity
-    = form.select :acidity, rating_rank
-  .form-group
-    = form.label :rich
-    = form.select :rich, rating_rank
-  .form-group
-    = form.label :sweet
-    = form.select :sweet, rating_rank
-  .form-group
-    = form.label :aroma
-    = form.select :aroma, rating_rank
-
   = form.fields_for :targets do |target_form|
     / targetsが複数の場合にoriginal?をtrueとする
     = form.hidden_field "original??", value: true if review.targets.size > 1
 
-    .form-group
-      = target_form.label :bean_id
-      = target_form.collection_select :bean_id, current_user.beans, :id, :beans_select_box
-    .form-group
-      = target_form.label :roasted
-      = target_form.text_field :roasted, class: 'form-control'
-    .form-group
-      = target_form.label :roasted_on
-      = target_form.date_field :roasted_on, value: Date.today, class: 'd-block'
-    .form-group
-      = target_form.label :grind
-      = target_form.text_field :grind, class: 'form-control'
-    .form-group
-      = target_form.label :amount
-      = target_form.number_field :amount, in: 0..100
+    .select-coffee-form
+      .form-group
+        = target_form.label :bean_id, class: 'mr-3'
+        = target_form.collection_select :bean_id, current_user.beans, :id, :beans_select_box
+      .row
+        .form-group.col-md-3
+          = target_form.label :roasted
+          = select_tag :roasted, options_for_select(roasted_select_box), include_blank: true, class: 'd-block form-control'
+        .form-group.col-md-3
+          = target_form.label :grind
+          = select_tag :grind, options_for_select(grind_select_box), include_blank: true, class: 'd-block form-control'
+        .form-group.col-md-3
+          = target_form.label :roasted_on
+          = target_form.date_field :roasted_on, class: 'd-block form-control'
+        .form-group.col-md-3
+          = target_form.label :amount
+          = target_form.number_field :amount, in: 0..100, class: 'd-block form-control'
+
+  .review-form
+    .form-group.mb-5
+      = form.label :title
+      = form.text_field :title, class: 'form-control'
+    .form-group.mb-5
+      = form.label :image
+      = form.file_field :image, data: { "image-tag-id" => "#preview-image" }, class: 'form-control-file image_file'
+      p.preview-area
+        img#preview-image alt="プレビュー" src=""
+    .form-group.mb-5
+      = form.label :drank_on
+      = form.date_field :drank_on, value: Date.today, class: 'd-block form-control'
+    .row
+      .form-group.col-md-2
+        = form.label :rating
+        #rating-form data-score=default_value(review.rating)
+      .form-group.col-md-2
+        = form.label :bitter
+        #bitter-form data-score=default_value(review.bitter)
+      .form-group.col-md-2
+        = form.label :acidity
+        #acidity-form data-score=default_value(review.acidity)
+      .form-group.col-md-2
+        = form.label :rich
+        #rich-form data-score=default_value(review.rich)
+      .form-group.col-md-2
+        = form.label :sweet
+        #sweet-form data-score=default_value(review.sweet)
+      .form-group.col-md-2
+        = form.label :aroma
+        #aroma-form data-score=default_value(review.aroma)
+
+    .form-group.mt-5
+      = form.label :content
+      = form.text_area :content, class: 'form-control review-content'
 
   .actions
     = form.submit "投稿する", class: 'btn btn-primary'

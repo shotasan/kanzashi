@@ -1,0 +1,72 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.preview-area {
+  text-align: center;
+
+  #preview-image {
+    height: 200px;
+    width: 300px;
+    margin: auto;
+    display: none;
+  }
+}
+
+.card {
+  height: 100%;
+
+  .card-header {
+    height: 3rem;
+    padding-right: 0;
+
+    .badge {
+      display: inline-block;
+      float: right;
+      transform: scale(0.7);
+    }
+    .tag-straight {
+      background-color: #664738;
+    }
+    .tag-blend {
+      background-color: #cc8d70;
+    }
+  }
+
+  .card-img-top {
+    height: 14rem;
+  }
+
+  .card-body {
+    .card-title {
+      position: relative;
+      background: #fff0cd;
+      box-shadow: 0 0 0 5px #fff0cd;
+      border: dashed 2px white;
+      padding: 0.2em 0.5em;
+      color: #454545;
+    }
+    .card-title:after {
+      position: absolute;
+      content: '';
+      right: -7px;
+      top: -7px;
+      border-width: 0 15px 15px 0;
+      border-style: solid;
+      border-color: #ffdb88 #fff #ffdb88;
+      box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+    }
+    .card-title p {
+      margin: 0;
+      padding: 0;
+    }
+    .card-text {
+      a {
+        float: right;
+      }
+    }
+    .text-muted {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
