@@ -16,6 +16,13 @@ class Review < ApplicationRecord
 
   scope :resent, -> { order(created_at: :desc) }
 
+  # レビューの一覧で豆の名前を表示するためのメソッド
+  def target_beans
+    targets = Target.where(review_id: self)
+    beans = targets.map { |target| target.bean.name }
+    beans.map { |bean| bean }
+  end
+
   private
 
   def image_nil
