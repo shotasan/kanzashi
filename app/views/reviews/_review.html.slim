@@ -1,15 +1,35 @@
-.col-md-4.mt-5
+.col-md-6.mt-5
   .card
     h5.card-header
       = link_to truncate(review.title, length: 10), review_path(review)
       = straight_or_blend_tag(review)
-    = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top' if review.image.attached?
-    .card-body
-      h5.card-title
-        - review.target_beans.each do |bean_name|
-          p = bean_name
-      p.card-text
-        = truncate(strip_tags(review.content), length: 30)
-      p.card-text.text-muted
-        = review.created_at.strftime("%H:%M - %Y年%m月%d日")
-        = link_to review.user.name, user_path(review.user)
+    .row
+      = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top col-md-5' if review.image.attached?
+      .card-body.col-md-7
+        h5.card-title
+          - review.target_beans.each do |bean_name|
+            p = bean_name
+        .card-text.mb-3
+          table.table-hover
+            tbody
+              tr
+                th= Review.human_attribute_name(:rating)
+                td.rating-rating data-score="#{ review.rating }"
+              tr
+                th= Review.human_attribute_name(:bitter)
+                td.bitter-rating data-score="#{ review.bitter }"
+              tr
+                th= Review.human_attribute_name(:acidity)
+                td.acidity-rating data-score="#{ review.acidity }"
+              tr
+                th= Review.human_attribute_name(:rich)
+                td.rich-rating data-score="#{ review.rich }"
+              tr
+                th= Review.human_attribute_name(:sweet)
+                td.sweet-rating data-score="#{ review.sweet }"
+              tr
+                th= Review.human_attribute_name(:aroma)
+                td.aroma-rating data-score="#{ review.aroma }"
+        p.card-text.text-muted
+          = review.created_at.strftime("%H:%M - %Y年%m月%d日")
+          = link_to review.user.name, user_path(review.user)

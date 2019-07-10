@@ -15,6 +15,10 @@
 .card {
   height: 100%;
 
+  .row {
+    height: 100%;
+  }
+
   .card-header {
     height: 3rem;
     padding-right: 0;
@@ -33,7 +37,7 @@
   }
 
   .card-img-top {
-    height: 14rem;
+    height: 100%;
   }
 
   .card-body {
@@ -62,6 +66,11 @@
     .card-text {
       a {
         float: right;
+        margin-left: 1rem;
+      }
+
+      span {
+        margin-left: 3rem;
       }
     }
     .text-muted {
