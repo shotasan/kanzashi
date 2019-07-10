@@ -1,5 +1,10 @@
 h1 ユーザー詳細
 
+.circle-avatar
+  - if avatar_present?
+    = image_tag current_user.avatar
+  - else
+    = image_tag 'no_image.jpg'
 p 名前: #{ @user.name }
 p メールアドレス: #{ @user.email }
 p プロフィール: #{ @user.profile }
