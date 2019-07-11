@@ -86,7 +86,6 @@ RSpec.describe 'レビュー機能' do
 
       it '投稿する画像ファイルを選択するとプレビューが表示されること' do
         attach_file 'review[image]', "#{ Rails.root }/spec/factories/no_image.jpg"
-        # save_and_open_page
         expect(page.find('#preview-image')['class']).to have_content 'no_image.jpg'
       end
     end
