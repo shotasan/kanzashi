@@ -11,6 +11,7 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         profile: "プロフィール"
+        avatar: "ユーザー画像"
       bean:
         name: "名称"
         country: "原産国"

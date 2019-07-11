@@ -116,8 +116,22 @@ RSpec.describe 'ユーザー機能', type: :system do
           click_on '更新する'
           expect(page).to have_content 'アカウント情報を変更しました。'
           expect(page).to have_content 'edit_user'
-          expect(page).to have_content 'edit@example.com'
           expect(page).to have_content 'Edit Test'
+        end
+
+        it 'ユーザー画像を設定できる' do
+          attach_file 'ユーザー画像', "#{Rails.root}/spec/factories/jon.png"
+          click_on '更新する'
+          expect(page).to have_css("img[src$='jon.png']")
+        end
+
+        it '画像を削除にチェックを入れて更新するとユーザー画像が削除される' do
+          attach_file 'ユーザー画像', "#{Rails.root}/spec/factories/jon.png"
+          click_on '更新する'
+          click_on '編集'
+          check 'remove_avatar'
+          click_on '更新する'
+          expect(page).not_to have_css("img[src$='jon.png']")
         end
       end
 
@@ -142,6 +156,38 @@ RSpec.describe 'ユーザー機能', type: :system do
           click_on '更新する'
           expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
           expect(page).to have_selector '.alert'
+        end
+      end
+    end
+
+    describe 'ユーザー詳細画面' do
+      let(:bean){ FactoryBot.create(:bean, user: user) }
+
+      before do
+        @review_a = build(:review, title: 'レビューA', user: user)
+        @review_a.targets.first.bean_id = bean.id
+        @review_a.save
+
+        @review_b = build(:review, title: 'レビューB', user: user)
+        @review_b.targets.first.bean_id = bean.id
+        @review_b.save
+
+        @review_c = build(:review, title: 'レビューC', user: user)
+        @review_c.targets.first.bean_id = bean.id
+        @review_c.save
+
+        visit user_path(user)
+      end
+
+      it 'ユーザーの情報が表示される' do
+        expect(page).to have_content 'ユーザー詳細'
+        expect(page).to have_content 'テストユーザー'
+      end
+
+      it 'ユーザーが投稿したレビューが投稿が新しい順に表示される' do
+        within '.user-reviews' do
+          reviews_title = all('.card-header a').map(&:text)
+          expect(reviews_title).to eq %w[レビューC レビューB レビューA]
         end
       end
     end

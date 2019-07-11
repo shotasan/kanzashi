@@ -1,8 +1,17 @@
 h1 ユーザー詳細
 
-p 名前: #{ @user.name }
-p メールアドレス: #{ @user.email }
-p プロフィール: #{ @user.profile }
-p Find me in app/views/users/show.html.slim
+.row.user-detail
+  .col-md-4
+    .circle-avatar
+      - if avatar_present?
+        = image_tag current_user.avatar
+      - else
+        = image_tag 'no_image.jpg'
+  .user-info.col-md-8
+    p 名前: #{ @user.name }
+    p プロフィール: #{ @user.profile }
+    p レビュー数: #{ @user.reviews.count }
+    = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
-= link_to '編集', edit_user_registration_path
+.row.user-reviews
+  = render @user.reviews.resent
