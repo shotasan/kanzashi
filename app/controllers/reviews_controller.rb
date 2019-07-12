@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @favorite = current_user.favorites.find_by(review_id: @review)
   end
 
   def new
