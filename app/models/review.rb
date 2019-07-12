@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   has_many :targets, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   accepts_nested_attributes_for :targets, allow_destroy: true
   has_one_attached :image
 
