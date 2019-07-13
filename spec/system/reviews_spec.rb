@@ -162,4 +162,71 @@ RSpec.describe 'レビュー機能' do
     end
 
   end
+
+  describe '詳細機能' do
+    before do
+      sign_in current_user
+      review.targets.first.bean_id = current_user_bean.id
+      review.save
+      visit reviews_path
+    end
+
+    context '自身のレビューの場合' do
+      before do
+        click_on 'MyString'
+      end
+
+      it 'レビュー一覧でタイトルをクリックすると詳細画面に遷移する' do
+        expect(page).to have_content 'レビュー詳細'
+      end
+
+      it '自身のレビューの詳細画面では編集リンクが表示される' do
+        expect(page).to have_link '編集'
+      end
+
+      it '自身のレビューの詳細画面では削除リンクが表示される' do
+        expect(page).to have_link '削除'
+      end
+
+      it '他ユーザーのレビューの詳細画面ではお気に入りリンクが表示される' do
+        expect(page).not_to have_link 'お気に入り'
+      end
+    end
+
+    context '他ユーザーのレビューの場合' do
+      before do
+        another_user = create(:user, name: 'another_user')
+        another_user_bean = FactoryBot.create(:bean, user: another_user)
+        another_user_review = FactoryBot.build(:review, user: another_user, title: 'Other')
+        another_user_review.targets.first.bean_id = another_user_bean.id
+        another_user_review.save
+        visit reviews_path
+        click_on 'Other'
+      end
+
+      it 'レビュー一覧でタイトルをクリックすると詳細画面に遷移する' do
+        expect(page).to have_content 'Other'
+      end
+
+      it '他ユーザーのレビューの詳細画面では編集リンクが表示されない' do
+        expect(page).not_to have_link '編集'
+      end
+
+      it '他ユーザーのレビューの詳細画面では編集リンクが表示されない' do
+        expect(page).not_to have_link '削除'
+      end
+
+      it '他ユーザーのレビューの詳細画面ではお気に入りリンクが表示される' do
+        expect(page).to have_link 'お気に入りする'
+      end
+
+      # Ajaxの関係で通らない場合がある
+      it 'お気に入りリンクをクリックすると、表示がお気に入り解除リンクに変わる', js: true do
+        click_on 'お気に入りする'
+        wait_for_ajax
+        expect(page).to have_content "お気に入り解除する"
+        expect(current_user.favorites.count).to eq 1
+      end
+    end
+  end
 end
