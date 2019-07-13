@@ -13,5 +13,10 @@ h1 ユーザー詳細
     p レビュー数: #{ @user.reviews.count }
     = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
-.row.user-reviews
+h3 #{ @user.name }のレビュー
+.row.user-reviews.mb-5
   = render @user.reviews.resent
+
+h3 #{ @user.name }のお気に入りレビュー
+.row.user-favorite-reviews
+  = render @user.fav_reviews.resent
