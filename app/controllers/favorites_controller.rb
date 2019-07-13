@@ -1,8 +1,5 @@
 class FavoritesController < ApplicationController
   before_action :set_review, only: %i[create destroy]
-  # def index
-  #   @favorites = FavoriteBean.where(user_id: current_user.id)
-  # end
 
   def create
     @favorite = current_user.favorites.create(review_id: params[:review_id])
