@@ -5,6 +5,7 @@ ja:
       bean: "豆"
       review: "レビュー"
       target: "ターゲット"
+      comment: "コメント"
     attributes:
       user:
         name: "ユーザー名"
@@ -42,3 +43,5 @@ ja:
         roasted: "焙煎方法"
         grind: "挽き方"
         roasted_on: "焙煎日"
+      comment:
+        content: "コメント内容"
