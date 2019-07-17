@@ -107,6 +107,17 @@ RSpec.describe 'ユーザー機能', type: :system do
         click_on '編集'
         expect(page).to have_content 'アカウント編集'
       end
+      it 'ユーザーがお気に入りしたレビューが表示される' do
+        # 他ユーザーのレビューを作成
+        another_user_bean = create(:bean, user: another_user)
+        another_user_review = build(:review, title: 'another', user: another_user)
+        another_user_review.targets.first.bean_id = another_user_bean.id
+        another_user_review.save
+        user.favorites.create(review_id: another_user_review.id)
+        visit user_path(user)
+
+        expect(page).to have_content('another')
+      end
     describe 'アカウント編集機能' do
       before do
         visit edit_user_registration_path
