@@ -33,6 +33,9 @@ table.table.table-hover
       th= Review.human_attribute_name(:created_at)
       td= @review.created_at
 
+#comment-form
+  = render 'comments/form', review: @review, comment: @comment
+
 - unless current_user?(@review)
   #favorite-btn
     = render "favorites/favorite_form"

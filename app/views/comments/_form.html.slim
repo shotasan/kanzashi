@@ -1,0 +1,14 @@
+h4
+  | コメントする
+= form_with(model: [review, comment]) do |form|
+  - if comment.errors.any?
+    #error_explanation.alert.alert-warning[role="alert"]
+      ul
+        - comment.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.text_area :content
+    = form.hidden_field :review_id
+  .actions
+    = form.submit('投稿する', class: "btn btn-primary")
