@@ -33,6 +33,11 @@ table.table.table-hover
       th= Review.human_attribute_name(:created_at)
       td= @review.created_at
 
+h4
+  | コメント一覧
+  #comments-area
+    = render @comments
+
 #comment-form
   = render 'comments/form', review: @review, comment: @comment
 

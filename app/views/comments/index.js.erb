@@ -1,0 +1,3 @@
+$("#comments-area").html("<%= j(render partial: 'comments/comment', collection: @comment.review.comments ) %>")
+$("textarea").val('')
+$("#error_explanation").hide()

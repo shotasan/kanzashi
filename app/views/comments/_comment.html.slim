@@ -1,0 +1,11 @@
+ul
+  - if comment.id.present?
+    li id=comment.id
+      p
+        = comment.content
+      p
+        | 投稿者:
+        = comment.user.name
+  - if current_user?(comment)
+    = link_to '編集', edit_review_comment_path(comment.review, comment), remote: true, class: "btn btn-success"
+    = link_to '削除', review_comment_path(comment.review, comment), method: :delete, remote: true, class: "btn btn-danger"
