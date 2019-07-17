@@ -1,5 +1,14 @@
 class CommentsController < ApplicationController
   def create
+    @comment = current_user.comments.build(comment_params)
+
+    respond_to do |format|
+      if @comment.save
+        format.js { render :index }
+      else
+        format.js { render :error }
+      end
+    end
   end
 
   def edit
@@ -9,5 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  def comment_params
+    params.require(:comment).permit(:user_id, :review_id, :content)
   end
 end
