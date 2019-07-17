@@ -17,6 +17,11 @@
                      root GET    /                                                                                        devise/sessions#new
                     users GET    /users(.:format)                                                                         users#index
                      user GET    /users/:id(.:format)                                                                     users#show
+          review_comments POST   /reviews/:review_id/comments(.:format)                                                   comments#create
+      edit_review_comment GET    /reviews/:review_id/comments/:id/edit(.:format)                                          comments#edit
+           review_comment PATCH  /reviews/:review_id/comments/:id(.:format)                                               comments#update
+                          PUT    /reviews/:review_id/comments/:id(.:format)                                               comments#update
+                          DELETE /reviews/:review_id/comments/:id(.:format)                                               comments#destroy
                   reviews GET    /reviews(.:format)                                                                       reviews#index
                           POST   /reviews(.:format)                                                                       reviews#create
                new_review GET    /reviews/new(.:format)                                                                   reviews#new

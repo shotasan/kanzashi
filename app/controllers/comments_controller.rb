@@ -30,6 +30,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.js { render :index }
+    end
+  end
+
   private
 
   def set_comment
