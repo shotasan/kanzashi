@@ -11,7 +11,8 @@ h1 ユーザー詳細
     p 名前: #{ @user.name }
     p プロフィール: #{ @user.profile }
     p レビュー数: #{ @user.reviews.count }
-    = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
+    - if @user == current_user
+      = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
 h3 #{ @user.name }のレビュー
 .row.user-reviews.mb-5
