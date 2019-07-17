@@ -14,9 +14,19 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.js { render :edit }
+    end
   end
 
   def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.js { render :index }
+      else
+        format.js { render :edit }
+      end
+    end
   end
 
   def destroy
