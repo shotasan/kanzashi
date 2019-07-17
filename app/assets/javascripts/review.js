@@ -1,6 +1,12 @@
 // ratyによる星の評価機能
-$(document).on('ready turbolinks:load',(function() {
+$(document).on('turbolinks:load',(function() {
     var rating_items = ['rating', 'bitter', 'acidity', 'rich', 'sweet', 'aroma'];
+
+    // ブラウザバック時の表示をリセット処理
+    rating_items.forEach(function(value) {
+        $(`#${ value }-form`).empty();
+        $(`.${value}-rating`).empty();
+    });
 
     // 新規作成画面での処理
     rating_items.forEach(function(value) {
