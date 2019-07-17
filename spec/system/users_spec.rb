@@ -103,6 +103,10 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
 
+      it '編集ボタンをクリックするとアカウント編集画面に遷移する' do
+        click_on '編集'
+        expect(page).to have_content 'アカウント編集'
+      end
     describe 'アカウント編集機能' do
       before do
         visit edit_user_registration_path
