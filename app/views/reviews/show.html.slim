@@ -39,17 +39,15 @@ table.table.table-hover
       td= @review.created_at
 
 
-h4
+div.label
   | コメント一覧
   #comments-area
     = render @comments
 
 br
 
-h4
-  | コメントする
-  #comment-form
-    = render 'comments/form', review: @review, comment: @comment
+#comment-form
+  = render 'comments/form', review: @review, comment: @comment
 
 - unless current_user?(@review)
   #favorite-btn

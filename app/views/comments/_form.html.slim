@@ -6,6 +6,7 @@
           li
             = message
   .field
+    = form.label :content
     = form.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control'
     = form.hidden_field :review_id
   .actions
