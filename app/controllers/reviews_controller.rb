@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @favorite = current_user.favorites.find_by(review_id: @review)
+    @comment = @review.comments.build
+    @comments = @review.comments
   end
 
   def new

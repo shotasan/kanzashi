@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show]
   end
 
-  resources :reviews
+  resources :reviews do
+    resources :comments, only: %i[create edit update destroy]
+  end
   resources :beans
   resources :favorites, only: %i[index create destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

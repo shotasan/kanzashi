@@ -79,3 +79,45 @@
     }
   }
 }
+
+//詳細画面
+.edit_or_delete_buttons {
+  text-align: right;
+}
+
+.comment-index {
+  .card {
+    height: 100%;
+    margin-top: 1rem;
+    font-size: medium;
+
+    .card-body {
+    }
+    .card-hooter {
+      height: 4rem;
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+      margin-right: 0;
+      margin-left: 0;
+      background-color: rgba(0, 0, 0, 0.03);
+
+      .comment-circle-avatar {
+        float: left;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+}
+
+#comment-form {
+  .actions {
+    text-align: right;
+    margin-top: 1rem;
+  }
+}

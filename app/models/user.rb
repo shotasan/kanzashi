@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :beans, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :fav_reviews, through: :favorites, source: :review
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :profile, length: { maximum: 300 }
