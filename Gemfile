@@ -82,3 +82,5 @@ gem 'devise-i18n-views'
 gem 'mini_magick'
 
 gem 'jquery-rails'
+
+gem 'font_awesome5_rails'
