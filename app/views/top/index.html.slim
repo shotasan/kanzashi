@@ -1,0 +1,124 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    title
+      | Kanzashi
+    link[href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"]
+  body
+    = render 'layouts/header'
+    = render 'layouts/alert'
+    header.masthead.text-white.text-center
+      .overlay
+      .container
+        .row
+          .col-xl-9.mx-auto
+            h1.mb-5
+              | kanzashi
+            h3.mb-5
+              | Let's find your best coffee
+          .col-md-10.col-lg-8.col-xl-7.mx-auto
+            form
+              .form-row
+                .col-12.offset-md-3.col-md-3.mb-2.mb-md-0
+                  = link_to '新規登録',  new_user_registration_path, class: 'btn btn-block btn-lg btn-primary'
+                .col-12.col-md-3
+                  = link_to 'ログイン',  new_user_session_path, class: 'btn btn-block btn-lg btn-primary'
+    section.features-icons.bg-light.text-center
+      .container
+        .row
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+              .features-icons-icon.d-flex
+                = fa_icon('coffee',class: 'icon-screen-desktop m-auto brown', size: '5x')
+              h3
+                | Recording coffee
+              p.lead.mb-0
+                | あなたが飲んだコーヒーの記録を付けられます
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+              .features-icons-icon.d-flex
+                = fa_icon('mortar-pestle',class: 'icon-screen-desktop m-auto', size: '5x')
+              h3
+                | Original Blend
+              p.lead.mb-0
+                | 複数のコーヒー豆を組み合わせてオリジナルブレンドを作りましょう
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-0.mb-lg-3
+              .features-icons-icon.d-flex
+                = fa_icon('search',class: 'icon-screen-desktop m-auto', size: '5x')
+              h3
+                | Search for preferences
+              p.lead.mb-0
+                | ５つの指標（苦味・酸味・甘み・コク・香り）からあなたの好みのコーヒーを探せます
+    section.showcase
+      .container-fluid.p-0
+        .row.no-gutters
+          .col-lg-6.order-lg-2.text-white.showcase-img.img-1
+          .col-lg-6.order-lg-1.my-auto.showcase-text
+            h2
+              | Recording coffee
+            p.lead.mb-0
+              | あなたが飲んだコーヒーの記録を付けられます。コーヒーの名称はもちろん、農園や原産国まで記録可能。焙煎方法や挽き方など細かく記録できます。 
+        .row.no-gutters
+          .col-lg-6.text-white.showcase-img.img-2
+          .col-lg-6.my-auto.showcase-text
+            h2
+              | Original Blend
+            p.lead.mb-0
+              | 複数の豆を合わせることで、あなただけのオリジナルブレンドを作りましょう。それぞれの豆ごとに入れた量や挽き方を記録できるので、簡単に試行錯誤できます。
+        .row.no-gutters
+          .col-lg-6.order-lg-2.text-white.showcase-img.img-3
+          .col-lg-6.order-lg-1.my-auto.showcase-text
+            h2
+              | Search for preferences
+            p.lead.mb-0
+              | あなたの好みのコーヒーを探しましょう。苦味・酸味・甘み・コク・香りの5つの指標から、あなたの好みに合うコーヒーを検索できます。
+    section.testimonials.text-center.bg-light
+      .container
+        h2.mb-5
+          | What is 『kanzashi』?
+        .row
+          .col-lg-4
+            .testimonial-item.mx-auto.mb-5.mb-lg-0
+              = image_tag("top-kanzashi-image.jpg", class: "img-fluid rounded-circle mb-3")
+              h5
+                | 簪（かんざし）
+          .col-lg-4
+            .testimonial-item.text-item.mx-auto.mb-5.mb-lg-0
+              h5
+                |  　『珈琲』という漢字は幕末の蘭学者、宇田川榕菴（うだがわようあん）が考案したと言われています。 
+                br
+                | 　その由来は、コーヒーの木の実が、女性が髪に刺すかんざしに似ていたためだとか。 
+                br
+                | 　『珈』は訓読みでかみかざりと読み、『琲』には玉を連ねた飾りという意味があります。 
+                br
+                | 　ちなみに宇田川榕菴は温度、沸騰、蒸気という言葉も生み出した人物だそうです。 
+          .col-lg-4
+            .testimonial-item.mx-auto.mb-5.mb-lg-0
+              = image_tag("top-seed-image.jpg", align: 'middle',class: "img-fluid rounded-circle mb-3")
+              h5
+                | コーヒーの実
+    section.call-to-action.text-white.text-center
+      .overlay
+      .container
+        .row
+          .col-xl-9.mx-auto
+            h2.mb-4
+              | 登録して始めてみましょう！
+          .col-md-10.col-lg-8.col-xl-7.mx-auto
+            form
+              .form-row
+                .col-12.offset-md-3.col-md-3.mb-2.mb-md-0
+                  = link_to '新規登録',  new_user_registration_path, class: 'btn btn-block btn-lg btn-primary'
+                .col-12.col-md-3
+                  = link_to 'ログイン',  new_user_session_path, class: 'btn btn-block btn-lg btn-primary'
+    = render 'layouts/footer'
+    script[src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"]
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"]
+    script[src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"]
