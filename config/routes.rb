@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'top#index'
     resources :users, only: %i[index show]
   end
 
