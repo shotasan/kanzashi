@@ -33,8 +33,7 @@ h6 {
 
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("top-image.jpg") no-repeat center center;
+  background: #343a40 url("top-image.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -128,8 +127,8 @@ header.masthead h1 {
 .testimonials .testimonial-item img {
   //max-width: 12rem;
   height: 14rem;
-  -webkit-box-shadow: 0px 5px 5px 0px #adb5bd;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
+  -webkit-box-shadow: 0 5px 5px 0 #adb5bd;
+  box-shadow: 0 5px 5px 0 #adb5bd;
 }
 
 .text-item {
@@ -138,8 +137,7 @@ header.masthead h1 {
 
 .call-to-action {
   position: relative;
-  background-color: #343a40;
-  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background: #343a40 url("top-bottom-image.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
