@@ -1,9 +1,27 @@
-.app-title.navbar.navbar-expand-md.navbar-light.bg-light
-  .navbar-brand kanzashi
+.app-title.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top
+  = link_to root_path, class: 'navbar-brand' do
+    = image_tag('header-icon-image.jpg', size: "50x50")
+    | Kanzashi
 
-  = link_to '豆の一覧', beans_path, class: 'nav-link'
-  = link_to '豆の登録', new_bean_path, class: 'nav-link'
-  = link_to '新規', new_review_path, class: 'nav-link'
-  = link_to 'ブレンド', new_review_path(blend: true), class: 'nav-link'
-  = link_to 'レビュー一覧', reviews_path, class: 'nav-link'
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #navbarResponsive.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        li.nav-item
+          = link_to '豆の一覧', beans_path, class: 'nav-link'
+        li.nav-item
+          = link_to '豆の登録', new_bean_path, class: 'nav-link'
+        li.nav-item
+          = link_to '新規', new_review_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'ブレンド', new_review_path(blend: true), class: 'nav-link'
+        li.nav-item
+          = link_to 'レビュー一覧', reviews_path, class: 'nav-link'
+        li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link'
+      - else
+        li.nav-item
+          = link_to 'ログイン', new_user_session_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'サインアップ', new_user_registration_path, class: 'nav-link'
