@@ -84,3 +84,5 @@ gem 'mini_magick'
 gem 'jquery-rails'
 
 gem 'font_awesome5_rails'
+
+gem 'ransack'
