@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(district: true)
+    @reviews = @q.result(district: true).resent
   end
 
   def show
