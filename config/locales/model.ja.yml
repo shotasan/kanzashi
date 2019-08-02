@@ -18,6 +18,7 @@ ja:
         country: "原産国"
         plantation: "農園"
       review:
+        original: 'ブレンド'
         bean: "選択する豆"
         title: "タイトル"
         content: "レビュー内容"
