@@ -2,7 +2,8 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
 
   def index
-    @reviews = Review.all.resent
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(district: true)
   end
 
   def show
