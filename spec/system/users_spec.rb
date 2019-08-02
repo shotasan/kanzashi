@@ -96,10 +96,10 @@ RSpec.describe 'ユーザー機能', type: :system do
     end
 
     describe 'ログアウト機能' do
-      it 'ログアウトをクリックするとログアウトに成功し、ログイン画面に遷移する' do
+      it 'ログアウトをクリックするとログアウトに成功し、トップ画面に遷移する' do
         click_on 'ログアウト'
         expect(page).to have_content 'ログアウトしました。'
-        expect(page).to have_content 'Log in'
+        expect(page).to have_link '新規登録'
       end
     end
 
