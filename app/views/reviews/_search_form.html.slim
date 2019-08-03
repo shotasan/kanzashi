@@ -1,0 +1,27 @@
+.search-box
+  .search-form
+    span.box-title
+      = fa_icon('search', class: 'icon-screen-desktop m-auto brown')
+      |  検索
+    = search_form_for @q do |f|
+      = f.label :rating
+      #rating-search
+
+      = f.label :bitter
+      #bitter-search
+
+      = f.label :acidity
+      #acidity-search
+
+      = f.label :rich
+      #rich-search
+
+      = f.label :sweet
+      #sweet-search
+
+      = f.label :aroma
+      #aroma-search
+
+      .search-button
+        = f.submit class: 'btn btn-primary'
+        = link_to 'クリア', request.path, class: 'btn btn-danger'
