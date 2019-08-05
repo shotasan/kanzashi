@@ -20,4 +20,4 @@ table.table.table-striped
           - if current_user?(bean)
             = link_to '編集', edit_bean_path(bean), class: 'btn btn-primary edit'
             = link_to '削除', bean_path(bean), method: :delete,
-                    data: { confirm: "#{ bean.name }を削除します。よろしいですか？" }, class: 'btn btn-danger'
+                    data: { confirm: "登録した豆を削除すると関連するレビューも全て削除されます。よろしいですか？" }, class: 'btn btn-danger'
