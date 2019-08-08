@@ -1,35 +1,35 @@
-.col-md-6.mt-5
-  .card
+/ .col-md-6.mt-5
+.card.col-md-6
+  .box
     h5.card-header
       = link_to truncate(review.title, length: 10), review_path(review)
       = straight_or_blend_tag(review)
-    .row
-      = image_tag review.image.variant(resize: "300x300"), class: 'card-img-top col-md-5' if review.image.attached?
-      .card-body.col-md-7
-        h5.card-title
-          - review.target_beans.each do |bean_name|
-            p = bean_name
-        .card-text.mb-3
-          table.table-hover
-            tbody
-              tr
-                th= Review.human_attribute_name(:rating)
-                td.rating-rating data-score="#{ review.rating }"
-              tr
-                th= Review.human_attribute_name(:bitter)
-                td.bitter-rating data-score="#{ review.bitter }"
-              tr
-                th= Review.human_attribute_name(:acidity)
-                td.acidity-rating data-score="#{ review.acidity }"
-              tr
-                th= Review.human_attribute_name(:rich)
-                td.rich-rating data-score="#{ review.rich }"
-              tr
-                th= Review.human_attribute_name(:sweet)
-                td.sweet-rating data-score="#{ review.sweet }"
-              tr
-                th= Review.human_attribute_name(:aroma)
-                td.aroma-rating data-score="#{ review.aroma }"
-        p.card-text.text-muted
-          = review.created_at.strftime("%H:%M - %Y年%m月%d日")
-          = link_to review.user.name, user_path(review.user)
+    = image_tag review.image.variant(resize: "380x320"), class: 'card-img-top', size: '380x320' if review.image.attached?
+    / .row
+    .card-body
+      h5.card-title
+        - review.target_beans.each do |bean_name|
+          p = bean_name
+      .card-text
+        ul.list-group.list-group-flush
+          li.list-group-item
+            = Review.human_attribute_name(:rating)
+            .rating-rating data-score="#{ review.rating }"
+          li.list-group-item
+            = Review.human_attribute_name(:bitter)
+            .bitter-rating data-score="#{ review.bitter }"
+          li.list-group-item
+            = Review.human_attribute_name(:acidity)
+            .acidity-rating data-score="#{ review.acidity }"
+          li.list-group-item
+            = Review.human_attribute_name(:rich)
+            .rich-rating data-score="#{ review.rich }"
+          li.list-group-item
+            = Review.human_attribute_name(:sweet)
+            .sweet-rating data-score="#{ review.sweet }"
+          li.list-group-item
+            = Review.human_attribute_name(:aroma)
+            .aroma-rating data-score="#{ review.aroma }"
+    .card-footer.text-muted
+      = review.created_at.strftime("%H:%M - %Y年%m月%d日")
+      = link_to review.user.name, user_path(review.user)

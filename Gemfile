@@ -74,7 +74,7 @@ gem 'html2slim'
 
 gem 'devise'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -84,3 +84,5 @@ gem 'mini_magick'
 gem 'jquery-rails'
 
 gem 'font_awesome5_rails'
+
+gem 'ransack'

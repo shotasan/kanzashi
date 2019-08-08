@@ -30,8 +30,11 @@ class BeansController < ApplicationController
   end
 
   def destroy
-    @bean.destroy
-    redirect_to beans_url, notice: "#{ @bean.name }を削除しました。"
+    if Bean.destroy_bean_and_related_reviews(@bean)
+      redirect_to beans_url, notice: "#{ @bean.name }を削除しました。"
+    else
+      redirect_to beans_url, notice: '削除に失敗しました。'
+    end
   end
 
   private
