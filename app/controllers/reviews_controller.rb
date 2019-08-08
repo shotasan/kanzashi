@@ -55,6 +55,6 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:original?, :title, :content, :image, :drank_on, :rating, :bitter, :acidity, :rich, :sweet, :aroma,
-                                   targets_attributes: %i[id bean_id roasted roasted_on grind amount])
+                                   targets_attributes: %i[id bean_id roasted roasted_on grind amount _destroy])
   end
 end
