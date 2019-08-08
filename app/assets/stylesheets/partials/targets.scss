@@ -10,6 +10,10 @@
   background: #FFF;
   border: solid 3px #a0522d;
   border-radius: 10px;
+
+  .remove-form-link {
+    text-align: right;
+  }
 }
 
 .review-form {
@@ -24,4 +28,8 @@
   .review-content{
     height: 10rem;
   }
+}
+
+.links {
+  text-align: right;
 }
