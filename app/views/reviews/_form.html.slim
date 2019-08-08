@@ -4,27 +4,12 @@
       - review.errors.full_messages.each do |message|
         li= message
 
-  = form.fields_for :targets do |target_form|
-    / targetsが複数の場合にoriginal?をtrueとする
-    = form.hidden_field "original??", value: true if review.targets.size > 1
-
-    .select-coffee-form
-      .form-group
-        = target_form.label :bean_id, class: 'mr-3'
-        = target_form.collection_select :bean_id, current_user.beans, :id, :beans_select_box
-      .row
-        .form-group.col-md-3
-          = target_form.label :roasted
-          = select_tag :roasted, options_for_select(roasted_select_box), include_blank: true, class: 'd-block form-control'
-        .form-group.col-md-3
-          = target_form.label :grind
-          = select_tag :grind, options_for_select(grind_select_box), include_blank: true, class: 'd-block form-control'
-        .form-group.col-md-3
-          = target_form.label :roasted_on
-          = target_form.date_field :roasted_on, class: 'd-block form-control'
-        .form-group.col-md-3
-          = target_form.label :amount
-          = target_form.number_field :amount, in: 0..100, class: 'd-block form-control'
+  #targets
+    = form.fields_for :targets do |target_form|
+      / targetsが複数の場合にoriginal?をtrueとする
+      = render 'target_fields', f: target_form
+    .links
+      = link_to_add_association '豆を増やす', form, :targets, class: 'btn btn-primary btn-sm'
 
   .review-form
     .form-group.mb-5

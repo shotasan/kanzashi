@@ -1,0 +1,19 @@
+.select-coffee-form.nested-fields
+  .form-group
+    = f.label :bean_id, class: 'mr-3'
+    = f.collection_select :bean_id, current_user.beans, :id, :beans_select_box
+  .row
+    .form-group.col-md-3
+      = f.label :roasted
+      = select_tag :roasted, options_for_select(roasted_select_box), include_blank: true, class: 'd-block form-control'
+    .form-group.col-md-3
+      = f.label :grind
+      = select_tag :grind, options_for_select(grind_select_box), include_blank: true, class: 'd-block form-control'
+    .form-group.col-md-3
+      = f.label :roasted_on
+      = f.date_field :roasted_on, class: 'd-block form-control'
+    .form-group.col-md-3
+      = f.label :amount
+      = f.number_field :amount, in: 0..100, class: 'd-block form-control'
+  .remove-form-link
+    = link_to_remove_association "豆を減らす", f, class: 'btn btn-danger btn-sm'
