@@ -6,7 +6,7 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
 
-  before_create :image_nil
+  before_create :image_nil, :check_straight_or_blend
 
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma, presence: true
   validates :title, presence: true, length: { maximum: 30 }
@@ -37,5 +37,9 @@ class Review < ApplicationRecord
     if drank_on.present? && drank_on > Date.today
       errors.add(:drank_on, 'に未来の日付は入力できません')
     end
+  end
+
+  def check_straight_or_blend
+    self.blend = true if self.targets.length > 1
   end
 end
