@@ -15,11 +15,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-    if params[:blend]
-      3.times { @review.targets.build }
-    else
-      @review.targets.build
-    end
+    @review.targets.build
   end
 
   def edit; end
