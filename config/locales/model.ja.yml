@@ -30,6 +30,7 @@ ja:
         rich: "コク"
         sweet: "甘み"
         aroma: "香り"
+        targets: "選択する豆"
       review/targets:
         bean: "選択する豆"
         bean_id: "選択した豆"
