@@ -5,10 +5,10 @@
   .row
     .form-group.col-md-3
       = f.label :roasted
-      = select_tag :roasted, options_for_select(roasted_select_box), include_blank: true, class: 'd-block form-control'
+      = f.select :roasted, options_for_select(roasted_select_box, selected: f.object.roasted), { include_blank: true }, { class: 'd-block form-control' }
     .form-group.col-md-3
       = f.label :grind
-      = select_tag :grind, options_for_select(grind_select_box), include_blank: true, class: 'd-block form-control'
+      = f.select :grind, options_for_select(grind_select_box, selected: f.object.grind), { include_blank: true }, { class: 'd-block form-control' }
     .form-group.col-md-3
       = f.label :roasted_on
       = f.date_field :roasted_on, class: 'd-block form-control'
