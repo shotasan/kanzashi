@@ -31,6 +31,7 @@ ja:
         sweet: "甘み"
         aroma: "香り"
         targets: "選択する豆"
+        created_at: "投稿日"
       review/targets:
         bean: "選択する豆"
         bean_id: "選択した豆"

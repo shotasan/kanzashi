@@ -38,7 +38,7 @@ table.table
       td= image_tag @review.image.variant(resize: "480x320")
     tr
       th= Review.human_attribute_name(:created_at)
-      td= @review.created_at
+      td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")
 
 
 div.label
