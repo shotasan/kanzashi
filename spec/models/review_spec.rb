@@ -108,6 +108,13 @@ RSpec.describe Review, type: :model do
         review.valid?
         expect(review.errors[:drank_on]).to include('に未来の日付は入力できません')
       end
+
+      it 'targetモデルとの関連付けが無いと無効な状態であること' do
+        # binding.pry
+        review.targets.clear
+        review.valid?
+        expect(review.errors[:targets]).to include('を入力してください')
+      end
     end
   end
 end
