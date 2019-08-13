@@ -122,6 +122,20 @@
   }
 }
 
+.card-deck {
+  margin-top: 1rem;
+  .card {
+    margin: auto;
+    padding: 0;
+    max-width: 40%;
+    font-weight: bold;
+    color: #a0522d;
+    background: #FFF;
+    border: solid 3px #a0522d;
+    border-radius: 10px;
+  }
+}
+
 #comment-form {
   .actions {
     text-align: right;
