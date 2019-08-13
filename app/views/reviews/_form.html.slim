@@ -6,7 +6,6 @@
 
   #targets
     = form.fields_for :targets do |target_form|
-      / targetsが複数の場合にoriginal?をtrueとする
       = render 'target_fields', f: target_form
     .links
       = link_to_add_association '豆を増やす', form, :targets, class: 'btn btn-primary btn-sm'
