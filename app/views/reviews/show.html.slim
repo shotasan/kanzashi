@@ -5,7 +5,9 @@ h3 レビュー詳細
     = link_to '編集', edit_review_path(@review), class: 'btn btn-primary mr-5'
     = link_to '削除', review_path(@review), method: :delete, data: { confirm: "#{ @review.title }を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-table.table.table-hover
+= render 'bean_info', review: @review
+
+table.table
   tbody
     tr
       th= Review.human_attribute_name(:title)
@@ -36,7 +38,7 @@ table.table.table-hover
       td= image_tag @review.image.variant(resize: "480x320")
     tr
       th= Review.human_attribute_name(:created_at)
-      td= @review.created_at
+      td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")
 
 
 div.label

@@ -1,13 +1,14 @@
 class Review < ApplicationRecord
   belongs_to :user
-  has_many :targets, dependent: :destroy
+  has_many :targets, inverse_of: :review, dependent: :destroy
+  accepts_nested_attributes_for :targets, reject_if: :all_blank, allow_destroy: true, limit: 3
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  accepts_nested_attributes_for :targets, allow_destroy: true
   has_one_attached :image
 
-  before_create :image_nil
+  before_create :image_nil, :check_straight_or_blend
 
+  validates :targets, presence: true
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma, presence: true
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { maximum: 1_000 }
@@ -37,5 +38,9 @@ class Review < ApplicationRecord
     if drank_on.present? && drank_on > Date.today
       errors.add(:drank_on, 'に未来の日付は入力できません')
     end
+  end
+
+  def check_straight_or_blend
+    self.blend = true if self.targets.length > 1
   end
 end

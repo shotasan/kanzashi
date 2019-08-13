@@ -12,7 +12,7 @@ module ReviewsHelper
   end
 
   def straight_or_blend_tag(review)
-    if review.original?
+    if review.blend
       content_tag(:span, 'ブレンド', class: 'badge badge-secondary tag-blend')
     else
       content_tag(:span, 'ストレート', class: 'badge badge-secondary tag-straight')

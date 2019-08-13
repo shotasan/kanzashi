@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require cocoon
 //= require popper
 //= require bootstrap-sprockets
 //= require font_awesome5
