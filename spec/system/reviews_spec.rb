@@ -95,11 +95,11 @@ RSpec.describe 'レビュー機能' do
       end
 
       it '焙煎方法のセレクトボックスに項目が存在すること' do
-        expect(page).to have_select('roasted', options: ['', 'ライトロースト', 'シナモンロースト', 'ミディアムロースト', 'ハイロースト', 'シティロースト', 'フルシティロースト', 'フレンチロースト', 'イタリアンロースト'])
+        expect(page).to have_select('review[targets_attributes][0][roasted]', options: ['', 'ライトロースト', 'シナモンロースト', 'ミディアムロースト', 'ハイロースト', 'シティロースト', 'フルシティロースト', 'フレンチロースト', 'イタリアンロースト'])
       end
 
       it '挽き方のセレクトボックスに項目が存在すること ' do
-        expect(page).to have_select('grind', options: ['', '極細挽き', '細挽き', '中細挽き', '中挽き', '粗挽き'])
+        expect(page).to have_select('review[targets_attributes][0][grind]', options: ['', '極細挽き', '細挽き', '中細挽き', '中挽き', '粗挽き'])
       end
 
       it '評価の星を表示するためのIDが表示されていること' do
