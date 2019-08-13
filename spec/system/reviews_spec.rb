@@ -63,6 +63,37 @@ RSpec.describe 'レビュー機能' do
     end
 
     context '表示に関するテスト' do
+      context '動的フォームの挙動に関するテスト' do
+        before do
+          click_on '豆を増やす'
+        end
+
+        it '豆を増やすボタンをクリックすると選択する豆の入力フォームが増えること' do
+          expect(page).to have_content('選択する豆', count: 2)
+          expect(page).to have_selector('.nested-fields', count: 2)
+        end
+
+        it '豆を増やすボタンをクリックすると豆を減らすボタンが表示されること' do
+          expect(page).to have_link '豆を減らす'
+        end
+
+        it '豆を減らすボタンをクリックすると選択する豆の入力フォームが減ること' do
+          click_on '豆を減らす'
+          expect(page).to have_content('選択する豆', count: 1)
+          expect(page).to have_selector('.nested-fields', count: 1)
+        end
+
+        it '選択する豆の入力フォームが3つになると豆を増やすボタンが表示されないこと' do
+          click_on '豆を増やす'
+          expect(page).not_to have_content '豆を増やす'
+        end
+
+        it '選択する豆の入力フォームが1つになると豆を減らすボタンが表示されないこと' do
+          click_on '豆を減らす'
+          expect(page).not_to have_content '豆を減らす'
+        end
+      end
+
       it '焙煎方法のセレクトボックスに項目が存在すること' do
         expect(page).to have_select('roasted', options: ['', 'ライトロースト', 'シナモンロースト', 'ミディアムロースト', 'ハイロースト', 'シティロースト', 'フルシティロースト', 'フレンチロースト', 'イタリアンロースト'])
       end
