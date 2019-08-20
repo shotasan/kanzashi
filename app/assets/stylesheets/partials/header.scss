@@ -1,0 +1,15 @@
+.app-title {
+  margin-bottom: 1rem;
+  min-height: 70px;
+  background-color: white;
+
+  .nav-item {
+    text-align: center;
+    width: 96px;
+    font-size: small;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

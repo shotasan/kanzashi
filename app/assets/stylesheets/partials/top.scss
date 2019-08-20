@@ -16,11 +16,6 @@ body {
   flex: 1;
 }
 
-.app-title {
-  margin-bottom: 1rem;
-  min-height: 70px;
-}
-
 h1,
 h2,
 h3,
@@ -125,7 +120,6 @@ header.masthead h1 {
 }
 
 .testimonials .testimonial-item img {
-  //max-width: 12rem;
   height: 14rem;
   -webkit-box-shadow: 0 5px 5px 0 #adb5bd;
   box-shadow: 0 5px 5px 0 #adb5bd;
