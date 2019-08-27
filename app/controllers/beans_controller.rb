@@ -3,6 +3,7 @@ class BeansController < ApplicationController
 
   def index
     @beans = Bean.all
+    @bean = Bean.new
   end
 
   def new
