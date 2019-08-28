@@ -11,7 +11,7 @@ RSpec.describe '豆の管理機能', type: :system do
   describe '新規登録機能' do
     before do
       sign_in current_user
-      visit new_bean_path
+      visit beans_path
       fill_in '名称', with: bean.name
       fill_in '原産国', with: bean.country
       fill_in '農園', with: bean.plantation
