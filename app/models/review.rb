@@ -6,8 +6,6 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
 
-  before_create :image_nil, :check_straight_or_blend
-
   validates :targets, presence: true
   validates :rating, :bitter, :acidity, :rich, :sweet, :aroma, presence: true
   validates :title, presence: true, length: { maximum: 30 }
@@ -16,6 +14,8 @@ class Review < ApplicationRecord
             presence: true,
             inclusion: { in: [*1..5] }
   validate :future_date_prohibited
+
+  before_create :image_nil, :check_straight_or_blend
 
   scope :resent, -> { order(created_at: :desc) }
 
@@ -28,6 +28,7 @@ class Review < ApplicationRecord
 
   private
 
+  # デフォルト画像を表示するためのメソッド
   def image_nil
     unless self.image.attached?
       self.image.attach(io: File.open('app/assets/images/no_image.jpg'), filename: 'no_image.jpg', content_type: 'image/jpg')

@@ -10,6 +10,7 @@ class Target < ApplicationRecord
 
   private
 
+  # ユーザーが登録した豆だけを選択できるようにするバリデーション
   def bean_registered_by_current_user?
     unless review.user.beans.any? {|bean| bean.id == bean_id}
       errors.messages[:bean_id] << 'は登録されていません'
