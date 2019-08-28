@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :reviews do
     resources :comments, only: %i[create edit update destroy]
   end
-  resources :beans
-  resources :favorites, only: %i[index create destroy]
+  resources :beans, except: %i[new show]
+  resources :favorites, only: %i[create destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
