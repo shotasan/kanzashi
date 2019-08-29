@@ -15,7 +15,8 @@ class Review < ApplicationRecord
             inclusion: { in: [*1..5] }
   validate :future_date_prohibited
 
-  before_create :image_nil, :check_straight_or_blend
+  before_create :image_nil
+  before_save :check_straight_or_blend
 
   scope :resent, -> { order(created_at: :desc) }
 
@@ -41,7 +42,8 @@ class Review < ApplicationRecord
     end
   end
 
+  # ストレートかブレンドを判定するメソッド
   def check_straight_or_blend
-    self.blend = true if self.targets.length > 1
+    self.blend = self.targets.length > 1
   end
 end
