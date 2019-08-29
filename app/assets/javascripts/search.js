@@ -10,4 +10,10 @@ $(document).on('turbolinks:load',(function() {
             scoreName: `q[${value}_gteq]`
         });
     });
+
+    // 検索フォーム内のチェックボックス
+    $(".checkbox").on("click", function(){
+        $('.checkbox').prop('checked', false);
+        $(this).prop('checked', true);
+    });
 }));
