@@ -5,10 +5,10 @@
       |  検索
     = search_form_for @q do |f|
       div
-        = f.check_box :blend_false, class: 'checkbox'
+        = f.check_box :blend_false, include_hidden: false, class: 'checkbox'
         = f.label(:blend_false, "ストレート")
 
-        = f.check_box :blend_true,  class: 'checkbox'
+        = f.check_box :blend_true, include_hidden: false,  class: 'checkbox'
         = f.label(:blend_true, "ブレンド")
 
       = f.label :rating
