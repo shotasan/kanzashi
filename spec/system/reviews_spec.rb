@@ -12,7 +12,7 @@ RSpec.describe 'レビュー機能' do
   describe '新規登録機能' do
     before do
       sign_in current_user
-      visit new_review_url
+      visit new_review_path
       fill_in 'タイトル', with: review.title
       fill_in 'レビュー内容', with: review.content
     end
@@ -91,6 +91,25 @@ RSpec.describe 'レビュー機能' do
         it '選択する豆の入力フォームが1つになると豆を減らすボタンが表示されないこと' do
           click_on '豆を減らす'
           expect(page).not_to have_content '豆を減らす'
+        end
+      end
+
+      context 'レビュー一覧画面のタグに関するテスト' do
+        it '選択する豆が１種類の場合ストレートのタグが表示されること' do
+          click_on '投稿する'
+          visit reviews_path
+          within '.card-header' do
+            expect(page).to have_content 'ストレート'
+          end
+        end
+
+        it '選択する豆が２種類以上の場合ブレンドのタグが表示されること' do
+          click_on '豆を増やす'
+          click_on '投稿する'
+          visit reviews_path
+          within '.card-header' do
+            expect(page).to have_content 'ブレンド'
+          end
         end
       end
 
