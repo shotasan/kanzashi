@@ -161,6 +161,25 @@ RSpec.describe 'レビュー機能' do
           expect(page).to have_css("img[src*='/assets/star-on.png'", count: 5)
         end
       end
+
+      context '画像の投稿に関するテスト' do
+        before do
+          attach_file '画像', "#{Rails.root}/spec/factories/jon.png"
+          click_on '投稿する'
+        end
+
+        it '画像を添付して投稿するをクリックすると詳細画面に遷移し、添付した画像が表示されること' do
+          expect(page.find('#review_image')['src']).to have_content'jon.png'
+        end
+
+        it 'デフォルト画像に戻すにチェックを入れて投稿するをクリックすると詳細画面に遷移し、デフォルト画像が表示されること' do
+          click_on '編集'
+          check 'デフォルト画像に戻す'
+          click_on '投稿する'
+          expect(page.find('#review_image')['src']).to have_content'no_image.jpg'
+          expect(page.find('#review_image')['src']).not_to have_content'jon.jpg'
+        end
+      end
     end
 
     context '編集に失敗する場合' do
