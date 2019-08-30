@@ -16,7 +16,7 @@ RSpec.describe 'ユーザー機能', type: :system do
 
     context '登録に成功する場合' do
       it '登録に成功し、ユーザー詳細画面に遷移する' do
-        click_on 'Sign up'
+        click_on '登録する'
         expect(page).to have_content 'ユーザー詳細'
         expect(page).to have_content 'アカウント登録が完了しました。'
       end
@@ -25,28 +25,28 @@ RSpec.describe 'ユーザー機能', type: :system do
     context '登録に失敗する場合' do
       it '名前を空欄で入力すると警告が表示される' do
         fill_in 'ユーザー名', with: ''
-        click_on 'Sign up'
+        click_on '登録する'
         expect(page).to have_content 'ユーザー名を入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'メールアドレスを空欄で入力すると警告が表示される' do
         fill_in 'メールアドレス', with: ''
-        click_on 'Sign up'
+        click_on '登録する'
         expect(page).to have_content 'メールアドレスを入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'パスワードを空欄で入力すると警告が表示される' do
         fill_in 'パスワード', with: ''
-        click_on 'Sign up'
+        click_on '登録する'
         expect(page).to have_content 'パスワードを入力してください'
         expect(page).to have_selector '.alert'
       end
 
       it 'パスワードと確認用パスワードが不一致だと警告が表示される' do
         fill_in 'パスワード', with: 'wrong_password'
-        click_on 'Sign up'
+        click_on '登録する'
         expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
         expect(page).to have_selector '.alert'
       end
@@ -63,7 +63,7 @@ RSpec.describe 'ユーザー機能', type: :system do
 
     context 'ログインに成功する場合' do
       it 'ログインに成功し、ユーザー詳細画面に遷移する' do
-        click_on 'Log in'
+        click_on 'ログインする'
         expect(page).to have_content 'ログインしました。'
         expect(page).to have_content 'ユーザー詳細'
       end
@@ -72,14 +72,14 @@ RSpec.describe 'ユーザー機能', type: :system do
     context 'ログインに失敗する場合' do
       it 'メールアドレスが誤っていると警告が表示される' do
         fill_in 'メールアドレス', with: 'wrong_email@example.com'
-        click_on 'Log in'
+        click_on 'ログインする'
         expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
         expect(page).to have_selector '.alert'
       end
 
       it 'パスワードが誤っていると警告が表示される' do
         fill_in 'パスワード', with: 'wrong_password'
-        click_on 'Log in'
+        click_on 'ログインする'
         expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
         expect(page).to have_selector '.alert'
       end
@@ -92,7 +92,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: user.email
       fill_in 'パスワード', with: user.password
-      click_on 'Log in'
+      click_on 'ログインする'
     end
 
     describe 'ログアウト機能' do
