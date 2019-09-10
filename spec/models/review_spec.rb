@@ -110,7 +110,6 @@ RSpec.describe Review, type: :model do
       end
 
       it 'targetモデルとの関連付けが無いと無効な状態であること' do
-        # binding.pry
         review.targets.clear
         review.valid?
         expect(review.errors[:targets]).to include('を入力してください')
