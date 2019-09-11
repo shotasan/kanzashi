@@ -5,3 +5,7 @@ h1 レビュー一覧
 
   .row.col-md-9
     = render @reviews
+
+.mb-3
+  = paginate @reviews
+  = page_entries_info @reviews
