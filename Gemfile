@@ -75,6 +75,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'font_awesome5_rails'
 gem 'html2slim'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'ransack'
 gem 'slim-rails'
