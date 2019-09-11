@@ -20,6 +20,8 @@ class Review < ApplicationRecord
 
   scope :resent, -> { order(created_at: :desc) }
 
+  paginates_per 10
+
   # レビューの一覧で豆の名前を表示するためのメソッド
   def target_beans
     targets = Target.where(review_id: self)
