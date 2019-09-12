@@ -735,6 +735,42 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="faker (vbundled(2.2.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/doc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.github" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/doc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/doc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/bundler/gems/faker-9365f60abdcd/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="ffi (vbundled(1.11.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -902,6 +938,73 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.3.5/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari (vbundled(1.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/gemfiles" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-1.1.1/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-actionview (vbundled(1.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-actionview-1.1.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-actionview-1.1.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-activerecord (vbundled(1.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-activerecord-1.1.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-activerecord-1.1.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-core (vbundled(1.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/config" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/config" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kaminari-core-1.1.1/config" />
         </excluded>
       </library>
     </orderEntry>

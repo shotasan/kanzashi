@@ -50,39 +50,28 @@
   .card-body {
     .card-title {
       position: relative;
-      background: #fff0cd;
-      box-shadow: 0 0 0 5px #fff0cd;
-      border: dashed 2px white;
-      padding: 0.2em 0.5em;
-      color: #454545;
-    }
-    .card-title:after {
-      position: absolute;
-      content: '';
-      right: -7px;
-      top: -7px;
-      border-width: 0 15px 15px 0;
-      border-style: solid;
-      border-color: #ffdb88 #fff #ffdb88;
-      box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
-    }
-    .card-title p {
-      margin: 0;
-      padding: 0;
+      margin: 2em 0;
+      padding: 0.5em 1em;
+      border: solid 3px #66362d;
+      border-radius: 8px;
     }
     .card-text {
-      a {
-        float: right;
-        margin-left: 1rem;
-      }
-
-      span {
-        margin-left: 3rem;
-      }
+      position: relative;
+      padding: 0.5em 1em;
+      border: solid 3px #66362d;
+      border-radius: 8px;
     }
-    .text-muted {
+    span.box-title {
       position: absolute;
-      bottom: 0;
+      display: inline-block;
+      top: -13px;
+      left: 10px;
+      padding: 0 9px;
+      line-height: 1;
+      font-size: 19px;
+      background: #FFF;
+      color: #66362d;
+      font-weight: bold;
     }
   }
 }

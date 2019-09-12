@@ -12,7 +12,7 @@ RSpec.describe 'レビュー機能' do
   describe '新規登録機能' do
     before do
       sign_in current_user
-      visit new_review_url
+      visit new_review_path
       fill_in 'タイトル', with: review.title
       fill_in 'レビュー内容', with: review.content
     end
@@ -94,6 +94,25 @@ RSpec.describe 'レビュー機能' do
         end
       end
 
+      context 'レビュー一覧画面のタグに関するテスト' do
+        it '選択する豆が１種類の場合ストレートのタグが表示されること' do
+          click_on '投稿する'
+          visit reviews_path
+          within '.card-header' do
+            expect(page).to have_content 'ストレート'
+          end
+        end
+
+        it '選択する豆が２種類以上の場合ブレンドのタグが表示されること' do
+          click_on '豆を増やす'
+          click_on '投稿する'
+          visit reviews_path
+          within '.card-header' do
+            expect(page).to have_content 'ブレンド'
+          end
+        end
+      end
+
       it '焙煎方法のセレクトボックスに項目が存在すること' do
         expect(page).to have_select('review[targets_attributes][0][roasted]', options: ['', 'ライトロースト', 'シナモンロースト', 'ミディアムロースト', 'ハイロースト', 'シティロースト', 'フルシティロースト', 'フレンチロースト', 'イタリアンロースト'])
       end
@@ -159,6 +178,25 @@ RSpec.describe 'レビュー機能' do
         click_on '投稿する'
         within '.rating-rating' do
           expect(page).to have_css("img[src*='/assets/star-on.png'", count: 5)
+        end
+      end
+
+      context '画像の投稿に関するテスト' do
+        before do
+          attach_file '画像', "#{Rails.root}/spec/factories/jon.png"
+          click_on '投稿する'
+        end
+
+        it '画像を添付して投稿するをクリックすると詳細画面に遷移し、添付した画像が表示されること' do
+          expect(page.find('#review_image')['src']).to have_content'jon.png'
+        end
+
+        it 'デフォルト画像に戻すにチェックを入れて投稿するをクリックすると詳細画面に遷移し、デフォルト画像が表示されること' do
+          click_on '編集'
+          check 'デフォルト画像に戻す'
+          click_on '投稿する'
+          expect(page.find('#review_image')['src']).to have_content'no_image.jpg'
+          expect(page.find('#review_image')['src']).not_to have_content'jon.jpg'
         end
       end
     end

@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
+  before_action :reset_image, only: :update
 
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(district: true).resent
+    @reviews = @q.result(district: true).resent.page(params[:page])
   end
 
   def show
@@ -50,7 +51,13 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:original?, :title, :content, :image, :drank_on, :rating, :bitter, :acidity, :rich, :sweet, :aroma,
+    params.require(:review).permit(:title, :content, :image, :drank_on, :rating, :bitter, :acidity, :rich, :sweet, :aroma,
                                    targets_attributes: %i[id bean_id roasted roasted_on grind amount _destroy])
+  end
+
+  def reset_image
+    if params[:review][:reset_image]
+      @review.image.attach(io: File.open('app/assets/images/no_image.jpg'), filename: 'no_image.jpg', content_type: 'image/jpg')
+    end
   end
 end

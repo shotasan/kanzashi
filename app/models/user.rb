@@ -3,17 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_one_attached :avatar
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :profile, length: { maximum: 300 }
 
   has_many :reviews, dependent: :destroy
   has_many :beans, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :fav_reviews, through: :favorites, source: :review
   has_many :comments, dependent: :destroy
+  has_one_attached :avatar
 
-  validates :name, presence: true, length: { maximum: 30 }
-  validates :profile, length: { maximum: 300 }
 
   # ユーザー編集でパスワードの入力を不要にし、パスワードの変更も可能にするためのメソッド
   def update_without_current_password(params, *options)

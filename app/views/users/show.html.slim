@@ -6,7 +6,7 @@ h1 ユーザー詳細
       - if avatar_present?
         = image_tag current_user.avatar
       - else
-        = image_tag 'no_image.jpg'
+        = image_tag 'avatar_no_image.jpg'
   .user-info.col-md-8
     p 名前: #{ @user.name }
     p プロフィール: #{ @user.profile }
@@ -14,10 +14,6 @@ h1 ユーザー詳細
     - if @user == current_user
       = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
-h3 #{ @user.name }のレビュー
-.row.user-reviews.mb-5
-  = render @user.reviews.resent
 
-h3 #{ @user.name }のお気に入りレビュー
-.row.user-favorite-reviews
-  = render @user.fav_reviews.resent
+#reviews-area
+  = render 'user_reviews'

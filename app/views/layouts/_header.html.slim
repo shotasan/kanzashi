@@ -9,26 +9,31 @@
     ul.navbar-nav.ml-auto
       - if user_signed_in?
         li.nav-item
-          = fa_icon('home', class: 'm-auto', size: '2x')
-          = link_to 'ホーム', reviews_path, class: 'nav-link'
+          = link_to reviews_path do
+            = fa_icon('home', class: 'm-auto home', size: '2x')
+            span.nav-link ホーム
         li.nav-item
-          = fa_icon('egg', class: 'm-auto', size: '2x')
-          = link_to '豆', beans_path, class: 'nav-link'
+          = link_to beans_path do
+            = fa_icon('egg', class: 'm-auto egg', size: '2x')
+            span.nav-link 豆
         li.nav-item
-          = fa_icon('pen', class: 'm-auto', size: '2x')
-          = link_to 'レビュー', new_review_path, class: 'nav-link'
+          = link_to new_review_path do
+            = fa_icon('pen', class: 'm-auto pen', size: '2x')
+            span.nav-link レビュー
         li.nav-item
-          = fa_icon('user', class: 'm-auto', size: '2x')
-          = link_to 'マイページ', user_path(current_user), class: 'nav-link'
+          = link_to user_path(current_user)
+            = fa_icon('user', class: 'm-auto user', size: '2x')
+            span.nav-link マイページ
         li.nav-item
-          = fa_icon('sign-out-alt', class: 'm-auto', size: '2x')
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link'
+          = link_to destroy_user_session_path, method: :delete do
+            = fa_icon('sign-out-alt', class: 'm-auto sign-out-alt', size: '2x')
+            span.nav-link ログアウト
       - else
         li.nav-item
-          = link_to(new_user_session_path, class: 'nav-link') do
-            = fa_icon('sign-in-alt', class: 'm-auto', size: '2x')
-            p ログイン
+          = link_to new_user_session_path do
+            = fa_icon('sign-in-alt', class: 'm-auto sign-in-alt', size: '2x')
+            span.nav-link ログイン
         li.nav-item
-          = link_to(new_user_registration_path, class: 'nav-link') do
-            = fa_icon('user-plus', class: 'm-auto', size: '2x')
-            p サインアップ
+          = link_to new_user_registration_path do
+            = fa_icon('user-plus', class: 'm-auto user-plus', size: '2x')
+            span.nav-link 新規登録

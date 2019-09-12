@@ -1,0 +1,8 @@
+h3.user-reviews #{ @user.name }のレビュー
+= link_to "#{@user.name}のお気に入り一覧", {remote: true}, {class: 'btn btn-primary change-btn'}
+
+.row.mb-5
+  = render @user.reviews.resent.page(params[:page])
+.mt-3
+  = paginate @user.reviews.resent.page(params[:page])
+  = page_entries_info @user.reviews.page(params[:page])
