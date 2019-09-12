@@ -140,13 +140,13 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
 
       it 'ユーザーが投稿したレビューが投稿が新しい順に表示される' do
-        within '.user-reviews' do
+        within '#reviews-area' do
           reviews_title = all('.card-header a').map(&:text)
           expect(reviews_title).to eq %w[レビューC レビューB レビューA]
         end
       end
 
-      it 'ユーザーがお気に入りしたレビューが表示される' do
+      it 'お気に入り一覧ボタンをクリックするとユーザーがお気に入りしたレビューが表示される' do
         # 他ユーザーのレビューを作成
         another_user_bean = create(:bean, user: another_user)
         another_user_review = build(:review, title: 'another', user: another_user)
@@ -154,6 +154,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         another_user_review.save
         user.favorites.create(review_id: another_user_review.id)
         visit user_path(user)
+        click_on "#{user.name}のお気に入り一覧"
 
         expect(page).to have_content('another')
       end
