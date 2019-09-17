@@ -66,6 +66,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'cocoon'
 gem 'devise'
