@@ -5,10 +5,11 @@ $(document).on('turbolinks:load',(function() {
         $(`#${ value }-search`)
             .empty()
             .raty({
-            path: '/assets/',
-            score: 1,
-            scoreName: `q[${value}_gteq]`
-        });
+                score: 1,
+                scoreName: `q[${value}_gteq]`,
+                starOff:      "<%= asset_path('star-off.png') %>",
+                starOn:       "<%= asset_path('star-on.png') %>"
+            });
     });
 
     // 検索フォーム内のチェックボックス
