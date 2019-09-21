@@ -1,7 +1,7 @@
 .select-coffee-form.nested-fields
   .form-group
     = f.label :bean_id, class: 'mr-3'
-    = f.collection_select :bean_id, current_user.beans, :id, :beans_select_box
+    = f.collection_select :bean_id, current_user.beans, :id, :beans_select_box, {}, { class: 'd-block form-control' }
   .row
     .form-group.col-md-3
       = f.label :roasted
