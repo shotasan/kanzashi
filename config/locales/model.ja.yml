@@ -5,21 +5,20 @@ ja:
       bean: "豆"
       review: "レビュー"
       target: "ターゲット"
-      bean/target: "選択する豆"
-      bean/targets: "選択する豆"
-      beans/target: "選択する豆"
-      beans/targets: "選択する豆"
+      comment: "コメント"
     attributes:
       user:
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
         profile: "プロフィール"
+        avatar: "ユーザー画像"
       bean:
         name: "名称"
         country: "原産国"
         plantation: "農園"
       review:
+        original: 'ブレンド'
         bean: "選択する豆"
         title: "タイトル"
         content: "レビュー内容"
@@ -31,13 +30,21 @@ ja:
         rich: "コク"
         sweet: "甘み"
         aroma: "香り"
+        targets: "選択する豆"
+        created_at: "投稿日"
       review/targets:
         bean: "選択する豆"
         bean_id: "選択した豆"
       target:
         bean_id: "選択する豆"
-        roasted: "焙煎"
+        roasted: "焙煎方法"
         roasted_on: "焙煎日"
         grind: "挽き方"
-        amount: "入れた量"
+        amount: "投入量(グラム)"
         bean: "選択する豆"
+      targets:
+        roasted: "焙煎方法"
+        grind: "挽き方"
+        roasted_on: "焙煎日"
+      comment:
+        content: "コメント内容"

@@ -1,3 +1,51 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.circle-avatar {
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: fill;
+  }
+
+  label {
+    margin-left: 1rem;
+  }
+}
+
+.user-detail {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .user-info {
+    position: relative;
+
+    .btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+.change-btn {
+  display: block;
+  background-color: #fbafaf;
+  border-bottom: solid 2px #ca2c2c;
+  color: #fff;
+}
+
+//.active {
+//  background-color: #ff5555;
+//}

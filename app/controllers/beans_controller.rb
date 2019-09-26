@@ -3,19 +3,17 @@ class BeansController < ApplicationController
 
   def index
     @beans = Bean.all
-  end
-
-  def new
     @bean = Bean.new
   end
 
   def create
+    @beans = Bean.all
     @bean = current_user.beans.build(bean_params)
 
     if @bean.save
       redirect_to new_review_url, notice: '新しい豆を登録しました。'
     else
-      render :new
+      render :index
     end
   end
 
@@ -30,8 +28,11 @@ class BeansController < ApplicationController
   end
 
   def destroy
-    @bean.destroy
-    redirect_to beans_url, notice: "#{ @bean.name }を削除しました。"
+    if Bean.destroy_bean_and_related_reviews(@bean)
+      redirect_to beans_url, notice: "#{ @bean.name }を削除しました。"
+    else
+      redirect_to beans_url, notice: '削除に失敗しました。'
+    end
   end
 
   private

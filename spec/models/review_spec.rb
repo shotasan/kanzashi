@@ -2,8 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Review, type: :model do
   describe '新規登録のテスト' do
-    let(:review){ FactoryBot.build(:review) }
+    let(:current_user){ FactoryBot.create(:user) }
+    let(:bean){ FactoryBot.create(:bean, user: current_user) }
+    let(:review){ FactoryBot.build(:review, user: current_user) }
+
     context 'バリデーションのテスト' do
+      before do
+        review.targets.first.bean_id = bean.id
+      end
+
       it '正常に登録できる場合' do
         expect(review).to be_valid
       end
@@ -94,6 +101,18 @@ RSpec.describe Review, type: :model do
         review.aroma = 6
         review.valid?
         expect(review.errors[:aroma]).to include('は一覧にありません')
+      end
+
+      it 'drank_onに未来の日付を入力すると無効な状態であること' do
+        review.drank_on = Date.tomorrow
+        review.valid?
+        expect(review.errors[:drank_on]).to include('に未来の日付は入力できません')
+      end
+
+      it 'targetモデルとの関連付けが無いと無効な状態であること' do
+        review.targets.clear
+        review.valid?
+        expect(review.errors[:targets]).to include('を入力してください')
       end
     end
   end

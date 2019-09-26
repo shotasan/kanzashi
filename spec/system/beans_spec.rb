@@ -6,12 +6,12 @@ RSpec.describe '豆の管理機能', type: :system do
   include Devise::Test::IntegrationHelpers
 
   let(:current_user) { FactoryBot.create(:user) }
-  let(:bean){ FactoryBot.build(:bean, user: current_user) }
+  let!(:bean){ FactoryBot.build(:bean, user: current_user) }
 
   describe '新規登録機能' do
     before do
       sign_in current_user
-      visit new_bean_path
+      visit beans_path
       fill_in '名称', with: bean.name
       fill_in '原産国', with: bean.country
       fill_in '農園', with: bean.plantation
@@ -98,19 +98,37 @@ RSpec.describe '豆の管理機能', type: :system do
   end
 
   describe '削除機能' do
+    let(:review) { FactoryBot.build(:review, title: 'Destroy', user: current_user) }
+
     before do
       bean.save
+      review.targets.first.bean_id = bean.id
+      review.save
       sign_in current_user
+    end
+
+
+    it '削除に成功し、メッセージが表示される' do
       visit beans_path
       click_on '削除'
       page.driver.browser.switch_to.alert.accept
+      expect(page).to have_content "#{bean.name}を削除しました。"
+      within '.table' do
+        expect(page).not_to have_content "#{bean.name}"
+      end
     end
 
-    it '削除に成功し、メッセージが表示される' do
-      expect(page).to have_content "#{ bean.name }を削除しました。"
-      within '.table' do
-        expect(page).not_to have_content "#{ bean.name }"
-      end
+    it '登録したレビューがレビュー一覧に表示される' do
+      visit reviews_path
+      expect(page).to have_content 'Destroy'
+    end
+
+    it '豆の情報を削除すると、関連するレビューも削除される' do
+      visit beans_path
+      click_on '削除'
+      page.driver.browser.switch_to.alert.accept
+      visit reviews_path
+      expect(page).not_to have_content 'Destroy'
     end
   end
 end

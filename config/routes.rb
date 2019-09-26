@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'top#index'
     resources :users, only: %i[index show]
   end
 
-  resources :reviews
-  resources :beans
+  resources :reviews do
+    resources :comments, only: %i[create edit update destroy]
+  end
+  resources :beans, except: %i[new show]
+  resources :favorites, only: %i[create destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,36 @@
+.app-title {
+  margin-bottom: 1rem;
+  min-height: 70px;
+  background-color: white;
+
+  .nav-item {
+    text-align: center;
+    width: 96px;
+    font-size: small;
+
+    .home {
+      color: #358000;
+    }
+    .egg {
+      color: #66362d;
+    }
+    .pen {
+      color: #330800;
+    }
+    .user {
+      color: #436199;
+    }
+    .sign-out-alt {
+      color: #e62200;
+    }
+    .sign-in-alt {
+      color: deepskyblue;
+    }
+    .user-plus {
+      color: green;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

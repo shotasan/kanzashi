@@ -1,0 +1,35 @@
+// Place all the styles related to the targets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.select-coffee-form {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #a0522d;
+  background: #FFF;
+  border: solid 3px #a0522d;
+  border-radius: 10px;
+
+  .remove-form-link {
+    text-align: right;
+  }
+}
+
+.review-form {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
+
+  .review-content{
+    height: 10rem;
+  }
+}
+
+.links {
+  text-align: right;
+}

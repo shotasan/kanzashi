@@ -14,9 +14,14 @@
                           PUT    /users(.:format)                                                                         users/registrations#update
                           DELETE /users(.:format)                                                                         users/registrations#destroy
                           POST   /users(.:format)                                                                         users/registrations#create
-                     root GET    /                                                                                        devise/sessions#new
+                     root GET    /                                                                                        top#index
                     users GET    /users(.:format)                                                                         users#index
                      user GET    /users/:id(.:format)                                                                     users#show
+          review_comments POST   /reviews/:review_id/comments(.:format)                                                   comments#create
+      edit_review_comment GET    /reviews/:review_id/comments/:id/edit(.:format)                                          comments#edit
+           review_comment PATCH  /reviews/:review_id/comments/:id(.:format)                                               comments#update
+                          PUT    /reviews/:review_id/comments/:id(.:format)                                               comments#update
+                          DELETE /reviews/:review_id/comments/:id(.:format)                                               comments#destroy
                   reviews GET    /reviews(.:format)                                                                       reviews#index
                           POST   /reviews(.:format)                                                                       reviews#create
                new_review GET    /reviews/new(.:format)                                                                   reviews#new
@@ -27,12 +32,12 @@
                           DELETE /reviews/:id(.:format)                                                                   reviews#destroy
                     beans GET    /beans(.:format)                                                                         beans#index
                           POST   /beans(.:format)                                                                         beans#create
-                 new_bean GET    /beans/new(.:format)                                                                     beans#new
                 edit_bean GET    /beans/:id/edit(.:format)                                                                beans#edit
-                     bean GET    /beans/:id(.:format)                                                                     beans#show
-                          PATCH  /beans/:id(.:format)                                                                     beans#update
+                     bean PATCH  /beans/:id(.:format)                                                                     beans#update
                           PUT    /beans/:id(.:format)                                                                     beans#update
                           DELETE /beans/:id(.:format)                                                                     beans#destroy
+                favorites POST   /favorites(.:format)                                                                     favorites#create
+                 favorite DELETE /favorites/:id(.:format)                                                                 favorites#destroy
        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show

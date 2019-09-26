@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :review do
-    original? { false }
+    blend { false }
     title { "MyString" }
     content { "MyText" }
     drank_on { "2019-06-08" }

@@ -4,6 +4,10 @@ class UsersController < Users::RegistrationsController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html { render 'users/show'}
+      format.js { render :index }
+    end
   end
 end

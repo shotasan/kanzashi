@@ -1,0 +1,34 @@
+.search-box
+  .search-form
+    span.box-title
+      = fa_icon('search', class: 'icon-screen-desktop m-auto brown')
+      |  検索
+    = search_form_for @q do |f|
+      div
+        = f.check_box :blend_false, include_hidden: false, class: 'checkbox'
+        = f.label(:blend_false, "ストレート")
+
+        = f.check_box :blend_true, include_hidden: false,  class: 'checkbox'
+        = f.label(:blend_true, "ブレンド")
+
+      = f.label :rating
+      #rating-search
+
+      = f.label :bitter
+      #bitter-search
+
+      = f.label :acidity
+      #acidity-search
+
+      = f.label :rich
+      #rich-search
+
+      = f.label :sweet
+      #sweet-search
+
+      = f.label :aroma
+      #aroma-search
+
+      .search-button
+        = f.submit class: 'btn btn-primary'
+        = link_to 'クリア', request.path, class: 'btn btn-danger'

@@ -1,0 +1,39 @@
+.card.col-md-6
+  .box
+    h5.card-header
+      = link_to truncate(review.title, length: 10), review_path(review)
+      = straight_or_blend_tag(review)
+    = image_tag review.image.variant(resize: "380x320"), class: 'card-img-top', size: '380x320' if review.image.attached?
+    .card-body
+      h5.card-title
+        span.box-title
+          = fa_icon('egg', class: 'm-auto')
+          |  豆
+        - review.target_beans.each do |bean_name|
+          li = bean_name
+      .card-text
+        span.box-title
+          = fa_icon('coffee', class: 'm-auto')
+          |  評価
+        ul.list-group.list-group-flush
+          li.list-group-item
+            = Review.human_attribute_name(:rating)
+            .rating-rating data-score="#{ review.rating }"
+          li.list-group-item
+            = Review.human_attribute_name(:bitter)
+            .bitter-rating data-score="#{ review.bitter }"
+          li.list-group-item
+            = Review.human_attribute_name(:acidity)
+            .acidity-rating data-score="#{ review.acidity }"
+          li.list-group-item
+            = Review.human_attribute_name(:rich)
+            .rich-rating data-score="#{ review.rich }"
+          li.list-group-item
+            = Review.human_attribute_name(:sweet)
+            .sweet-rating data-score="#{ review.sweet }"
+          li.list-group-item
+            = Review.human_attribute_name(:aroma)
+            .aroma-rating data-score="#{ review.aroma }"
+    .card-footer.text-muted
+      = review.created_at.strftime("%H:%M - %Y年%m月%d日")
+      = link_to review.user.name, user_path(review.user)

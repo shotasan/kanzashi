@@ -1,10 +1,14 @@
 h3 レビュー詳細
 
-table.table.table-hover
+.edit_or_delete_buttons
+  - if current_user?(@review)
+    = link_to '編集', edit_review_path(@review), class: 'btn btn-primary mr-5'
+    = link_to '削除', review_path(@review), method: :delete, data: { confirm: "#{ @review.title }を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+= render 'bean_info', review: @review
+
+table.table
   tbody
-    tr
-      th= Review.human_attribute_name(:id)
-      td= @review.id
     tr
       th= Review.human_attribute_name(:title)
       td= @review.title
@@ -12,11 +16,42 @@ table.table.table-hover
       th= Review.human_attribute_name(:content)
       td= @review.content
     tr
+      th= Review.human_attribute_name(:rating)
+      td.rating-rating data-score="#{ @review.rating }"
+    tr
+      th= Review.human_attribute_name(:bitter)
+      td.bitter-rating data-score="#{ @review.bitter }"
+    tr
+      th= Review.human_attribute_name(:acidity)
+      td.acidity-rating data-score="#{ @review.acidity }"
+    tr
+      th= Review.human_attribute_name(:rich)
+      td.rich-rating data-score="#{ @review.rich }"
+    tr
+      th= Review.human_attribute_name(:sweet)
+      td.sweet-rating data-score="#{ @review.sweet }"
+    tr
+      th= Review.human_attribute_name(:aroma)
+      td.aroma-rating data-score="#{ @review.aroma }"
+    tr
       th= Review.human_attribute_name(:image)
-      td= image_tag @review.image.variant(resize: "480x320") if @review.image.attached?
+      td= image_tag @review.image.variant(resize: "480x320"), id: 'review_image'
     tr
       th= Review.human_attribute_name(:created_at)
-      td= @review.created_at
-    tr
-      th= Review.human_attribute_name(:updated_at)
-      td= @review.updated_at
+      td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")
+
+
+div.label
+  | コメント一覧
+  #comments-area
+    = render @comments
+
+br
+
+#comment-form
+  = render 'comments/form', review: @review, comment: @comment
+
+- unless current_user?(@review)
+  #favorite-btn
+    = render "favorites/favorite_form"
+

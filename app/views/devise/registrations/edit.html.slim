@@ -4,6 +4,17 @@
     h2
       | アカウント編集
     .form-group
+      = f.label :avatar
+    .circle-avatar
+      - if avatar_present?
+        = image_tag current_user.avatar
+        span  画像を削除
+        label = check_box_tag "remove_avatar", true
+      - else
+        = image_tag 'avatar_no_image.jpg'
+    .form-group
+      = f.file_field :avatar, class: "mt-4"
+    .form-group
       = f.label :name
       br
       = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'

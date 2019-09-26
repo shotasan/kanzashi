@@ -1,8 +1,39 @@
-.app-title.navbar.navbar-expand-md.navbar-light.bg-light
-  .navbar-brand kanzashi
+.app-title.navbar.navbar-expand-md.navbar-light.fixed-top
+  = link_to root_path, class: 'navbar-brand' do
+    = image_tag('header-icon-image.jpg', size: "50x50")
+    | Kanzashi
 
-  = link_to '豆の一覧', beans_path, class: 'nav-link'
-  = link_to '豆の登録', new_bean_path, class: 'nav-link'
-  = link_to '新規', new_review_path, class: 'nav-link'
-  = link_to 'ブレンド', new_review_path(blend: true), class: 'nav-link'
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #navbarResponsive.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        li.nav-item
+          = link_to reviews_path do
+            = fa_icon('home', class: 'm-auto home', size: '2x')
+            span.nav-link ホーム
+        li.nav-item
+          = link_to beans_path do
+            = fa_icon('egg', class: 'm-auto egg', size: '2x')
+            span.nav-link 豆
+        li.nav-item
+          = link_to new_review_path do
+            = fa_icon('pen', class: 'm-auto pen', size: '2x')
+            span.nav-link レビュー
+        li.nav-item
+          = link_to user_path(current_user)
+            = fa_icon('user', class: 'm-auto user', size: '2x')
+            span.nav-link マイページ
+        li.nav-item
+          = link_to destroy_user_session_path, method: :delete do
+            = fa_icon('sign-out-alt', class: 'm-auto sign-out-alt', size: '2x')
+            span.nav-link ログアウト
+      - else
+        li.nav-item
+          = link_to new_user_session_path do
+            = fa_icon('sign-in-alt', class: 'm-auto sign-in-alt', size: '2x')
+            span.nav-link ログイン
+        li.nav-item
+          = link_to new_user_registration_path do
+            = fa_icon('user-plus', class: 'm-auto user-plus', size: '2x')
+            span.nav-link 新規登録

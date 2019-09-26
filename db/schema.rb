@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_070339) do
+ActiveRecord::Schema.define(version: 2019_08_08_084130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,28 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
     t.index ["user_id"], name: "index_beans_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "review_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_favorites_on_review_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "original?", default: false, null: false
+    t.boolean "blend", default: false, null: false
     t.string "title", default: "", null: false
     t.text "content", default: "", null: false
     t.date "drank_on", null: false
@@ -67,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
     t.bigint "review_id"
     t.bigint "bean_id"
     t.string "roasted", default: "", null: false
-    t.date "roasted_on", null: false
+    t.date "roasted_on"
     t.string "grind", default: "", null: false
     t.integer "amount", default: 0, null: false
     t.datetime "created_at", null: false
@@ -92,6 +111,10 @@ ActiveRecord::Schema.define(version: 2019_06_11_070339) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "beans", "users"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "reviews"
+  add_foreign_key "favorites", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "targets", "beans"
   add_foreign_key "targets", "reviews"

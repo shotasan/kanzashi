@@ -1,0 +1,27 @@
+.card-deck
+  - review.targets.each_with_index do |target, idx|
+    .card
+      .card-header
+        = "選んだ豆 No.#{ idx + 1 }"
+      ul.list-group.list-group-flush
+        li.list-group-item
+          = "【#{Bean.human_attribute_name(:name)}】"
+          = target.bean.name
+        li.list-group-item
+          = "【#{Bean.human_attribute_name(:country)}】"
+          = target.bean.country
+        li.list-group-item
+          = "【#{Bean.human_attribute_name(:plantation)}】"
+          = target.bean.plantation
+        li.list-group-item
+          = "【#{Target.human_attribute_name(:roasted)}】"
+          = target.roasted
+        li.list-group-item
+          = "【#{Target.human_attribute_name(:grind)}】"
+          = target.grind
+        li.list-group-item
+          = "【#{Target.human_attribute_name(:roasted_on)}】"
+          = target.roasted_on
+        li.list-group-item
+          = "【#{Target.human_attribute_name(:amount)}】"
+          = target.amount

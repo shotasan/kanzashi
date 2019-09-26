@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def rating_rank
-    %w[1 2 3 4 5]
+  def current_user?(klass)
+    klass.user == current_user
   end
 end

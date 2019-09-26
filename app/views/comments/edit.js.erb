@@ -1,0 +1,1 @@
+$("#<%= @comment.id %>").html("<%= j(render 'comments/form', { comment: @comment, review: @comment.review }) %>")

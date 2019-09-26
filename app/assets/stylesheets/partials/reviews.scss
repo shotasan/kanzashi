@@ -1,0 +1,173 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.preview-area {
+  text-align: center;
+
+  #preview-image {
+    height: 200px;
+    width: 300px;
+    margin: auto;
+    display: none;
+  }
+}
+
+.card {
+  border: none;
+  padding-top: 2rem;
+
+  .box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+  .card-header {
+    padding-right: 0;
+
+    .badge {
+      display: inline-block;
+      float: right;
+      transform: scale(0.7);
+    }
+    .tag-straight {
+      background-color: #664738;
+    }
+    .tag-blend {
+      background-color: #cc8d70;
+    }
+  }
+
+  .card-img-top {
+    border-radius: 0;
+  }
+
+  .card-body {
+    .card-title {
+      position: relative;
+      margin: 2em 0;
+      padding: 0.5em 1em;
+      border: solid 3px #66362d;
+      border-radius: 8px;
+    }
+    .card-text {
+      position: relative;
+      padding: 0.5em 1em;
+      border: solid 3px #66362d;
+      border-radius: 8px;
+    }
+    span.box-title {
+      position: absolute;
+      display: inline-block;
+      top: -13px;
+      left: 10px;
+      padding: 0 9px;
+      line-height: 1;
+      font-size: 19px;
+      background: #FFF;
+      color: #66362d;
+      font-weight: bold;
+    }
+  }
+}
+
+//詳細画面
+.edit_or_delete_buttons {
+  text-align: right;
+}
+
+.comment-index {
+  .card {
+    height: 100%;
+    margin-top: 1rem;
+    font-size: medium;
+
+    .card-body {
+    }
+    .card-hooter {
+      height: 4rem;
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+      margin-right: 0;
+      margin-left: 0;
+      background-color: rgba(0, 0, 0, 0.03);
+
+      .comment-circle-avatar {
+        float: left;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+}
+
+.card-deck {
+  margin-top: 1rem;
+  .card {
+    margin: auto;
+    padding: 0;
+    max-width: 40%;
+    font-weight: bold;
+    color: #a0522d;
+    background: #FFF;
+    border: solid 3px #a0522d;
+    border-radius: 10px;
+  }
+}
+
+#comment-form {
+  .actions {
+    text-align: right;
+    margin-top: 1rem;
+  }
+}
+
+.search-box {
+  position: sticky;
+  top: 100px;
+}
+
+.search-form {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 3px #95ccff;
+  border-radius: 8px;
+
+  .search-button {
+    text-align: right;
+    padding-top: 1rem;
+
+    .btn-primary {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.search-form .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #95ccff;
+  font-weight: bold;
+}
+
+.search-form p {
+  margin: 0;
+  padding: 0;
+}
