@@ -35,8 +35,7 @@ set :deploy_to, '/var/www/kanzashi'
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :puma_conf, "#{ current_path }/config/puma.rb"
-set :linked_files, %w{config/master.key}
+set :linked_files, %w{config/master.key config/puma.rb}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 
 set :rbenv_ruby, '2.6.3'
