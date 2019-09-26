@@ -19,11 +19,11 @@ grind_select_box = %w[極細挽き 細挽き 中細挽き 中挽き 粗挽き]
   3.times {
     current_user.beans.create!(user_id: User.last.id,
                                name: Faker::Coffee.blend_name,
-                               country: Faker::Address.country,
+                               country: Faker::Address.city,
                                plantation: Faker::Address.city)
   }
 
-  review = current_user.reviews.build(title: Faker::Book.title,
+  review = current_user.reviews.build(title: Faker::Book.title[0..30],
                                       content: Faker::Coffee.notes,
                                       drank_on: Faker::Date.between(from: 1.year.ago, to: Date.today),
                                       rating: rand(1..5),

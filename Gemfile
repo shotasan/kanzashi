@@ -66,6 +66,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'cocoon'
 gem 'devise'
@@ -80,3 +81,4 @@ gem 'mini_magick'
 gem 'ransack'
 gem 'slim-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'unicorn'

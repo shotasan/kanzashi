@@ -11,8 +11,10 @@ $(document).on('turbolinks:load',(function() {
     // 新規作成画面での処理
     rating_items.forEach(function(value) {
         $(`#${ value }-form`).raty({
-            path: '/assets/',
-            scoreName: `review[${value}]`
+            scoreName: `review[${value}]`,
+            starOff:      "<%= asset_path('star-off.png') %>",
+            starOn:       "<%= asset_path('star-on.png') %>"
+
         })
     });
 
@@ -23,7 +25,9 @@ $(document).on('turbolinks:load',(function() {
             score: function() {
                 return $(this).attr('data-score');
             },
-            path: '/assets/'
+            starOff:      "<%= asset_path('star-off.png') %>",
+            starOn:       "<%= asset_path('star-on.png') %>"
+
         })
     });
 }));

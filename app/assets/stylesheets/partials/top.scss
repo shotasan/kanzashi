@@ -28,7 +28,7 @@ h6 {
 
 header.masthead {
   position: relative;
-  background: #343a40 url("top-image.jpg") no-repeat center center;
+  background: #343a40 image-url("top-image.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -68,15 +68,15 @@ header.masthead h1 {
 }
 
 .img-1 {
-  background-image: url("top-record-image.jpg");
+  background-image: image-url("top-record-image.jpg");
 }
 
 .img-2 {
-  background-image: url("top-blend-image.jpg");
+  background-image: image-url("top-blend-image.jpg");
 }
 
 .img-3 {
-  background-image: url("top-search-image.jpg");
+  background-image: image-url("top-search-image.jpg");
 }
 
 @media (min-width: 768px) {
@@ -131,7 +131,7 @@ header.masthead h1 {
 
 .call-to-action {
   position: relative;
-  background: #343a40 url("top-bottom-image.jpg") no-repeat center center;
+  background: #343a40 image-url("top-bottom-image.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
