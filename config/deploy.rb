@@ -2,7 +2,7 @@
 lock '3.11.1'
 
 set :application, 'kanzashi'
-set :repo_url, 'https://github.com/shotasan/kanzashi.git'
+set :repo_url, 'git@github.com:shotasan/kanzashi.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -35,7 +35,8 @@ set :deploy_to, '/var/www/kanzashi'
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :linked_files, %w{config/credentials.yml.enc}
+set :puma_conf, "#{ current_path }/config/puma.rb"
+set :linked_files, %w{config/master.key}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 
 set :rbenv_ruby, '2.6.3'
