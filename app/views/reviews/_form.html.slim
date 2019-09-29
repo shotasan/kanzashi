@@ -22,7 +22,7 @@
     - if review.image.attached?
       .form-group.mb-5
         = form.label '現在登録中の画像'
-        = image_tag(review.image, height: '200px', class: 'd-block image_file m-auto')
+        = image_tag(url_for(review.image), height: '200px', class: 'd-block image_file m-auto')
         = form.check_box :reset_image, class: "mr-2"
         = form.label :reset_image, 'デフォルト画像に戻す'
     .form-group.mb-5
