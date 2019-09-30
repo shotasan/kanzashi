@@ -35,7 +35,7 @@ table.table
       td.aroma-rating data-score="#{ @review.aroma }"
     tr
       th= Review.human_attribute_name(:image)
-      td= image_tag url_for(@review.image.variant(resize: "480x320")), id: 'review_image'
+      td= image_tag object_url(@review.image), id: 'review_image'
     tr
       th= Review.human_attribute_name(:created_at)
       td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")

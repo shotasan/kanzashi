@@ -6,7 +6,7 @@
           = comment.content
       .card-hooter.row
         .comment-circle-avatar.col-md-2
-          = image_tag url_for(comment.user.avatar) if comment.user.avatar.attached?
+          = image_tag object_url(comment.user.avatar) if comment.user.avatar.attached?
         .col-md-7
           span = link_to comment.user.name, user_path(comment.user)
           div #{ comment.created_at.strftime("%H:%M - %m月%d日") }
