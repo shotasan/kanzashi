@@ -3,7 +3,7 @@
     h5.card-header
       = link_to truncate(review.title, length: 10), review_path(review)
       = straight_or_blend_tag(review)
-    = image_tag review.image.variant(resize: "380x320"), class: 'card-img-top', size: '380x320' if review.image.attached?
+      = image_tag object_url(review.image), class: 'card-img-top', size: '380x320' if review.image.attached?
     .card-body
       h5.card-title
         span.box-title
