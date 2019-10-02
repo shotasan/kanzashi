@@ -12,7 +12,7 @@
   }
 }
 
-.card {
+.review-index.card {
   border: none;
   padding-top: 2rem;
 
@@ -79,12 +79,19 @@
 //詳細画面
 .edit_or_delete_buttons {
   text-align: right;
+
+  .btn-success {
+    margin-right: 10px;
+  }
 }
 
 .comment-index {
+  margin-top: 1rem;
+  border: solid 2px;
+  border-radius: 5px;
+
   .card {
     height: 100%;
-    margin-top: 1rem;
     font-size: medium;
 
     .card-body {
@@ -92,7 +99,6 @@
     .card-hooter {
       height: 4rem;
       padding-top: 0.5rem;
-      padding-left: 1rem;
       margin-right: 0;
       margin-left: 0;
       background-color: rgba(0, 0, 0, 0.03);
