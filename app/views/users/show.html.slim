@@ -4,7 +4,7 @@ h1 ユーザー詳細
   .col-md-4
     .circle-avatar
       - if avatar_present?
-        = image_tag current_user.avatar
+        = image_tag object_url(current_user.avatar)
       - else
         = image_tag 'avatar_no_image.jpg'
   .user-info.col-md-8
