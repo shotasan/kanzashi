@@ -10,4 +10,8 @@ module ApplicationHelper
       object_image.attachment.service.send(:object_for, object_image.key).public_url
     end
   end
+
+  def header_icon_url
+    user_signed_in? ? reviews_path : root_path
+  end
 end
