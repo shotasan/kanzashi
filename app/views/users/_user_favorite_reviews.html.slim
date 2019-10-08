@@ -1,9 +1,0 @@
-h3 #{ @user.name }のお気に入り
-= link_to "#{@user.name}の投稿一覧", {remote: true}, {class: 'btn btn-primary change-btn'}
-
-.row.user-favorite-reviews
-  = render @user.fav_reviews.resent
-
-.mt-3
-  = paginate @user.fav_reviews.resent.page(params[:page])
-  = page_entries_info @user.fav_reviews.page(params[:page])
