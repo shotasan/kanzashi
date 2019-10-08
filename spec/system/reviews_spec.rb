@@ -131,7 +131,7 @@ RSpec.describe 'レビュー機能' do
       end
 
       it '評価の星の画像が表示されていること' do
-        expect(page).to have_css("img[src*='/assets/star-on.png'")
+        expect(page).to have_css("img[src*='star-on']")
       end
 
       it '投稿する画像ファイルを選択するとプレビューが表示されること' do
@@ -177,7 +177,7 @@ RSpec.describe 'レビュー機能' do
         end
         click_on '投稿する'
         within '.rating-rating' do
-          expect(page).to have_css("img[src*='/assets/star-on.png'", count: 5)
+          expect(page).to have_css("img[src*='star-on'", count: 5)
         end
       end
 
