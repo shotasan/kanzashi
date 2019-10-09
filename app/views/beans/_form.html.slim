@@ -4,7 +4,7 @@
       - bean.errors.full_messages.each do |message|
         li= message
 
-  .mx-auto.w-50
+  .mx-auto.w-50.bean-form
     .form-group
       = form.label :name
       = form.text_field :name, class: 'form-control'
@@ -16,4 +16,4 @@
       = form.text_field :plantation, class: 'form-control'
 
     .actions
-      = form.submit "登録する", class: 'btn btn-primary float-right'
+      = form.submit "登録する", class: 'btn btn-primary'
