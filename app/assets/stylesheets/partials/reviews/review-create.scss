@@ -1,11 +1,17 @@
 //投稿画面
-.preview-area {
-  text-align: center;
+.review-create {
+  .preview-area {
+    text-align: center;
 
-  #preview-image {
-    height: 200px;
-    width: 300px;
-    margin: auto;
-    display: none;
+    #preview-image {
+      height: 200px;
+      width: 300px;
+      margin: auto;
+      display: none;
+    }
+  }
+
+  .actions {
+    text-align: right;
   }
 }
