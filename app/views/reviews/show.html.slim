@@ -1,6 +1,10 @@
 .review-show
   h3 レビュー詳細
 
+  - unless current_user?(@review)
+    #favorite-btn
+      = render "favorites/favorite_form"
+
   .buttons
     - if current_user?(@review)
       = link_to '編集', edit_review_path(@review), class: 'btn btn-primary'
@@ -52,6 +56,3 @@
   #comment-form
     = render 'comments/form', review: @review, comment: @comment
 
-  - unless current_user?(@review)
-    #favorite-btn
-      = render "favorites/favorite_form"
