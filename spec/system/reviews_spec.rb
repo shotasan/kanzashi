@@ -286,14 +286,14 @@ RSpec.describe 'レビュー機能' do
       end
 
       it '他ユーザーのレビューの詳細画面ではお気に入りリンクが表示される' do
-        expect(page).to have_link 'お気に入りする'
+        expect(page).to have_link 'お気に入り'
       end
 
       # Ajaxの関係で通らない場合がある
       it 'お気に入りリンクをクリックすると、表示がお気に入り解除リンクに変わる', js: true do
-        click_on 'お気に入りする'
+        click_on 'お気に入り'
         wait_for_ajax
-        expect(page).to have_content "お気に入り解除する"
+        expect(page).to have_content 'お気に入り解除'
         expect(current_user.favorites.count).to eq 1
       end
     end
