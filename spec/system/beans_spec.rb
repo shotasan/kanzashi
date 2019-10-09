@@ -58,16 +58,16 @@ RSpec.describe '豆の管理機能', type: :system do
 
   describe '一覧機能' do
     before do
-      FactoryBot.create(:bean, name: 'first_bean')
-      FactoryBot.create(:bean, name: 'second_bean')
-      FactoryBot.create(:bean, name: 'third_bean')
+      FactoryBot.create(:bean, name: 'first_bean', user: current_user)
+      FactoryBot.create(:bean, name: 'second_bean', user: current_user)
+      FactoryBot.create(:bean, name: 'third_bean', user: current_user)
       sign_in current_user
       visit beans_path
     end
 
     it '登録されている豆の一覧が表示される' do
       beans_name = all('.bean_name').map(&:text)
-      expect(beans_name).to eq %w[first_bean second_bean third_bean]
+      expect(beans_name).to eq %w[third_bean second_bean first_bean]
     end
   end
 
