@@ -3,6 +3,15 @@ module ApplicationHelper
     klass.user == current_user
   end
 
+  # ユーザー画像が設定されていない場合にデフォルト画像を表示する
+  def avatar_attached?(user)
+    if user.avatar.attached?
+      ActionController::Base.helpers.image_tag(object_url(user.avatar))
+    else
+      ActionController::Base.helpers.image_tag('avatar_no_image.jpg')
+    end
+  end
+
   # production環境でS3オブジェクトのURLを取得するためのメソッド
   def object_url(object_image)
     if Rails.env.production?
@@ -15,14 +24,6 @@ module ApplicationHelper
   # ヘッダーアイコンのリンク先をログイン前後で変更するため
   def header_icon_url
     user_signed_in? ? reviews_path : root_path
-  end
-
-  def image_attached?(object)
-    if object.user.avatar.attached?
-      ActionController::Base.helpers.image_tag(object_url(object.user.avatar))
-    else
-      ActionController::Base.helpers.image_tag('avatar_no_image.jpg')
-    end
   end
 
   # 必須入力項目に表示されるバッジ

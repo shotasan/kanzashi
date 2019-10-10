@@ -6,10 +6,7 @@
 .row.user-detail
   .col-md-4
     .circle-avatar
-      - if avatar_present?
-        = image_tag object_url(current_user.avatar)
-      - else
-        = image_tag 'avatar_no_image.jpg'
+      = avatar_attached?(@user)
   .user-info.col-md-8
     h5 = User.human_attribute_name(:name)
     p = @user.name
