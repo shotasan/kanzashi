@@ -13,6 +13,7 @@
   .review-form
     .form-group.mb-5
       = form.label :title
+      = requier_badge
       = form.text_field :title, class: 'form-control'
     .form-group.mb-5
       = form.label :image
@@ -50,6 +51,7 @@
 
     .form-group.mt-5
       = form.label :content
+      = requier_badge
       = form.text_area :content, class: 'form-control review-content'
 
   .actions
