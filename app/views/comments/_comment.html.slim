@@ -5,13 +5,13 @@
         span id=comment.id
           = comment.content
       .card-hooter.row
-        .comment-circle-avatar.col-md-2
-          = image_tag object_url(comment.user.avatar) if comment.user.avatar.attached?
-        .col-md-7
+        .comment-circle-avatar.col-2.col-md-2
+          = avatar_attached?(comment.user)
+        .col-5.col-md-7
+
           span = link_to comment.user.name, user_path(comment.user)
           div #{ comment.created_at.strftime("%H:%M - %m月%d日") }
-        - if current_user?(comment)
-          .edit_or_delete_buttons.mt-3.col-md-3
-            = link_to '編集', edit_review_comment_path(comment.review, comment), remote: true, class: "btn btn-success mr-3"
+        .col-5.col-md-3.mt-3
+          - if current_user?(comment)
+            = link_to '編集', edit_review_comment_path(comment.review, comment), remote: true, class: "btn btn-success mr-2"
             = link_to '削除', review_comment_path(comment.review, comment), method: :delete, remote: true, class: "btn btn-danger"
-

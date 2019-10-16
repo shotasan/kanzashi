@@ -1,0 +1,96 @@
+.modal-dialog.modal-xl
+  .modal-content
+    .modal-header
+      h1 使い方
+      ul.link-list
+        li
+          = link_to 'ホーム', {anchor: 'home'}, {"data-turbolinks" => "false"}
+        li
+          = link_to '豆', {anchor: 'bean'}, {"data-turbolinks" => "false"}
+        li
+          = link_to 'レビュー', {anchor: 'review'}, {"data-turbolinks" => "false"}
+        li
+          = link_to 'マイページ', {anchor: 'my-page'}, {"data-turbolinks" => "false"}
+    .modal-body
+      #home
+        h2
+          span = fa_icon('home', class: 'm-auto home', size: '2x')
+          | ホーム（レビュー一覧)
+        p
+          | ヘッダーのホームアイコン
+          span = fa_icon('home', class: 'm-auto home', size: '2x')
+          | をクリックすると、レビュー一覧が表示されます。レビュー一覧には全ユーザーが投稿したレビューが新しいものから順に表示されます。
+        h5 詳細画面
+        p
+          | 各レビューのタイトル部分をクリックするとレビューの詳細を確認できます。
+          br
+          | レビューの詳細画面では豆の詳細情報や、レビューの内容を確認することができます。気になるコーヒ豆やブレンドの組み合わせがあれば画面上部のお気に入りボタンを押すことでお気に入りに登録することが出来ます。
+          br
+          | また、詳細画面では各レビューに対してコメントを残すことが出来ます。
+        h5 検索機能
+        p
+          | ホーム画面左側（スマートフォンの場合は最上部）に表示されている検索フォームを使用して、総合評価や味の好みでレビューの検索を行うことが出来ます。
+          br
+          | 例えば、苦味とコクがある豆を検索したい場合は、検索フォームの苦味とコクの欄にある星の数を選択し、検索ボタンを押します。選択された星の数以上に該当するレビューだけが表示されます。検索結果をクリアして通常の表示に戻す場合は検索フォームのクリアボタンを押します。
+        div
+          = image_tag('how_to_search_before_image.png', class: 'img-fluid')
+          = image_tag('how_to_search_after_image.png', class: 'img-fluid')
+
+      #bean
+        h2
+          span = fa_icon('egg', class: 'm-auto egg', size: '2x')
+          | 豆
+        p
+          | ヘッダーの豆アイコン
+          span = fa_icon('egg', class: 'm-auto egg', size: '2x')
+          | をクリックすると、豆の新規登録と登録済みの豆一覧を確認することが出来ます。
+          br
+          | レビューをするには事前に豆を登録する必要があります。豆を新しく登録するとそのままレビュー画面に遷移します。
+          br
+          strong 登録済みの豆を削除すると、関連するレビューも全て削除されるため注意してください。
+
+      #review
+        h2
+          span = fa_icon('pen', class: 'm-auto pen', size: '2x')
+          | レビュー
+        p
+          | ヘッダーのレビューアイコン
+          span = fa_icon('pen', class: 'm-auto pen', size: '2x')
+          | をクリックするとレビュー投稿画面が表示されます。
+          br
+          | まずレビュー対象の豆を選択します。選択する豆の欄には登録済みの豆がドロップリストで一覧表示されます。
+          br
+          | 自分のオリジナルブレンドを作成したい場合は、『豆を増やす』ボタンを押すと、豆の選択欄を増やすことが出来ます。最大３種類の豆を選択することが出来るので、色々な組み合わせを試してみてください。
+          br
+          | レビューする豆を選んだら、レビューのタイトルと内容を記入します。
+        div
+          = image_tag('how_to_review_image1.png', class: 'img-fluid')
+        div
+          = image_tag('how_to_review_image2.png', class: 'img-fluid')
+
+      #my-page
+        h2
+          span = fa_icon('user', class: 'm-auto user', size: '2x')
+          | マイページ
+        p
+          | ヘッダーのマイページアイコン
+          span = fa_icon('user', class: 'm-auto user', size: '2x')
+          | をクリックするとユーザーの詳細ページが表示されます。
+          br
+          | マイページではユーザーが投稿したレビューの一覧とお気に入りしたレビューの一覧を確認することができます。
+          br
+          | マイページの編集ボタンを押すとアカウント編集画面が表示されます。
+          br
+          | アカウント編集画面では以下の情報を編集することができます。
+        ul
+          li ユーザー画像
+          li ユーザー名
+          li メールアドレス
+          li プロフィール
+          li パスワード
+        p
+          | アカウントの削除もアカウント編集画面から行うことができます。
+
+    .modal-footer
+      button.btn.btn-primary[type="button" data-dismiss="modal"]
+        | Close

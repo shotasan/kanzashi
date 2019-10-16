@@ -1,7 +1,14 @@
-.button {
-  text-align: right;
-  width: 170px;
-  .edit {
-    margin-right: 30px;
+.bean-form {
+  .actions {
+    text-align: right;
   }
 }
+
+.bean-index {
+  margin-top: 3rem;
+
+  td.buttons {
+    text-align: center;
+  }
+}
+

@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @favorite = current_user.favorites.find_by(review_id: @review)
     @comment = @review.comments.build
-    @comments = @review.comments
+    @comments = @review.comments.order(:created_at)
   end
 
   def new

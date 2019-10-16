@@ -1,0 +1,99 @@
+//詳細画面
+.review-show {
+  #favorite-btn {
+    text-align: right;
+  }
+
+  .buttons {
+    text-align: right;
+
+    .btn-primary {
+      margin-right: 1rem;
+    }
+  }
+
+  table {
+    th {
+      width: 30%;
+    }
+    #review_image {
+      width: 80%;
+    }
+  }
+
+  //bean_info.html
+  .card-deck {
+    margin-top: 1rem;
+    justify-content: center;
+
+    .card {
+      margin: 1rem auto;
+      padding-left: 0;
+      padding-right: 0;
+      border: solid 3px #a0522d;
+      border-radius: 10px;
+
+      .card-body {
+        padding: 0.5rem;
+
+        span.box-title {
+          position: absolute;
+          display: inline-block;
+          top: -13px;
+          left: 10px;
+          padding: 0 9px;
+          line-height: 1;
+          font-size: 19px;
+          background: #FFF;
+          color: #66362d;
+          font-weight: bold;
+
+        }
+
+        table{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  //comment.html
+  .comment-index {
+    margin-top: 1rem;
+    border: solid 2px;
+    border-radius: 5px;
+
+    .card {
+      height: 100%;
+      font-size: medium;
+
+      .card-body {
+      }
+      .card-hooter {
+        height: 4rem;
+        padding-top: 0.5rem;
+        margin-right: 0;
+        margin-left: 0;
+        background-color: rgba(0, 0, 0, 0.03);
+
+        .comment-circle-avatar {
+          float: left;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: fill;
+          }
+        }
+      }
+    }
+  }
+
+  #comment-form {
+    .actions {
+      text-align: right;
+      margin-top: 1rem;
+    }
+  }
+}

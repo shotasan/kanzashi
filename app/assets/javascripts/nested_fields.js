@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', (function() {
         $(".remove-form-link").hide();
     }
 
+    // 増減時のフォームの数による、表示・非表示を切り替える処理
     $("#targets")
         .on('cocoon:before-insert', function() {
             if($(".nested-fields").length >= 2) {

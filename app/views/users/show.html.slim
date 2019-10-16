@@ -1,19 +1,25 @@
-h1 ユーザー詳細
+- if @favorites
+  h1 #{ @user.name }のお気に入り一覧
+- else
+  h1 #{ @user.name }のレビュー一覧
 
 .row.user-detail
   .col-md-4
     .circle-avatar
-      - if avatar_present?
-        = image_tag current_user.avatar
-      - else
-        = image_tag 'avatar_no_image.jpg'
+      = avatar_attached?(@user)
   .user-info.col-md-8
-    p 名前: #{ @user.name }
-    p プロフィール: #{ @user.profile }
-    p レビュー数: #{ @user.reviews.count }
+    h5 = User.human_attribute_name(:name)
+    p = @user.name
+    h5 = User.human_attribute_name(:profile)
+    p = @user.profile
+    h5 レビュー数
+    p = @user.reviews.count
     - if @user == current_user
       = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
+.row
+  = link_to "#{ @user.name }のレビュー一覧", user_path, class: 'btn btn-outline-success btn-lg col-6'
+  = link_to "#{ @user.name }のお気に入り一覧", user_path(favorite: true), class: 'btn btn-outline-info btn-lg col-6'
 
 #reviews-area
-  = render 'user_reviews'
+  = render 'users/user_reviews', reviews: @favorites || @user_reviews

@@ -17,7 +17,7 @@ RSpec.describe 'ユーザー機能', type: :system do
     context '登録に成功する場合' do
       it '登録に成功し、ユーザー詳細画面に遷移する' do
         click_on '登録する'
-        expect(page).to have_content 'ユーザー詳細'
+        expect(page).to have_content "#{user.name}のレビュー一覧"
         expect(page).to have_content 'アカウント登録が完了しました。'
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       it 'ログインに成功し、ユーザー詳細画面に遷移する' do
         click_on 'ログインする'
         expect(page).to have_content 'ログインしました。'
-        expect(page).to have_content 'ユーザー詳細'
+        expect(page).to have_content "#{user.name}のレビュー一覧"
       end
     end
 
@@ -124,7 +124,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
 
       it 'ユーザーの情報が表示される' do
-        expect(page).to have_content 'ユーザー詳細'
+        expect(page).to have_content "#{user.name}のレビュー一覧"
         expect(page).to have_content 'テストユーザー'
       end
 

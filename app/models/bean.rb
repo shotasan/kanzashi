@@ -6,6 +6,10 @@ class Bean < ApplicationRecord
   validates :country, length: { maximum: 30 }
   validates :plantation, length: { maximum: 30 }
 
+  scope :resent, -> { order(created_at: :desc) }
+
+  paginates_per 10
+
   def beans_select_box
     "【名称】 #{name} 【原産国】 #{country} 【農園】 #{plantation}"
   end
