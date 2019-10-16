@@ -7,6 +7,11 @@
     span.navbar-toggler-icon
   #navbarResponsive.collapse.navbar-collapse
     ul.navbar-nav.ml-auto
+      li.nav-item
+        = link_to('#', data: { toggle: "modal", target: "#myModal" }) do
+          = fa_icon('question-circle', class: 'm-auto question-circle', size: '2x')
+          span.nav-link 使い方
+
       - if user_signed_in?
         li.nav-item
           = link_to reviews_path do
@@ -37,3 +42,6 @@
           = link_to new_user_registration_path do
             = fa_icon('user-plus', class: 'm-auto user-plus', size: '2x')
             span.nav-link 新規登録
+
+#myModal.modal.fade
+  = render 'reviews/modal_how_to_use'
