@@ -61,6 +61,26 @@
       font-weight: bold;
     }
   }
+
+  .card-footer {
+    position: relative;
+
+    .user-link {
+      position: absolute;
+      right: 1rem;
+      display: inline-flex;
+    }
+    .circle-avatar {
+      float: left;
+    }
+    img {
+      margin-right: 1rem;
+      width: 40px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: fill;
+    }
+  }
 }
 
 //検索フォーム

@@ -34,6 +34,8 @@
           li.list-group-item
             = Review.human_attribute_name(:aroma)
             .aroma-rating data-score="#{ review.aroma }"
-    .card-footer.text-muted
-      = review.created_at.strftime("%H:%M - %Y年%m月%d日")
-      = link_to review.user.name, user_path(review.user)
+    .card-footer.text-muted.circle-avatar
+      = review.created_at.strftime("%Y年%m月%d日")
+      .user-link
+        = avatar_attached?(review.user)
+        = link_to review.user.name, user_path(review.user)
