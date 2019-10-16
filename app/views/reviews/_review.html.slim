@@ -1,7 +1,7 @@
-.card.col-md-6
-  .box
+.review-index.card.col-md-6
+  .box.shadow-sm
     h5.card-header
-      = link_to truncate(review.title, length: 10), review_path(review)
+      = link_to truncate(review.title, length: 20), review_path(review)
       = straight_or_blend_tag(review)
     = image_tag object_url(review.image), class: 'card-img-top', size: '380x320' if review.image.attached?
     .card-body
@@ -34,6 +34,8 @@
           li.list-group-item
             = Review.human_attribute_name(:aroma)
             .aroma-rating data-score="#{ review.aroma }"
-    .card-footer.text-muted
-      = review.created_at.strftime("%H:%M - %Y年%m月%d日")
-      = link_to review.user.name, user_path(review.user)
+    .card-footer.text-muted.circle-avatar
+      = review.created_at.strftime("%Y年%m月%d日")
+      .user-link
+        = avatar_attached?(review.user)
+        = link_to review.user.name, user_path(review.user)

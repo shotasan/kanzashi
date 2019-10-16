@@ -4,16 +4,16 @@
       - bean.errors.full_messages.each do |message|
         li= message
 
-  .mx-auto.w-50
+  .mx-auto.w-50.bean-form
     .form-group
       = form.label :name
-      = form.text_field :name, class: 'form-control'
-    .form-group
+      = requier_badge
+      = form.text_field :name, placeholder: '例）ブルーマウンテンNo1', class: 'form-control'
       = form.label :country
-      = form.text_field :country, class: 'form-control'
+      = form.text_field :country, placeholder: '例）ジャマイカ', class: 'form-control'
     .form-group
       = form.label :plantation
-      = form.text_field :plantation, class: 'form-control'
+      = form.text_field :plantation, placeholder: '例）クライスデール農園', class: 'form-control'
 
     .actions
-      = form.submit "登録する", class: 'btn btn-primary float-right'
+      = form.submit "登録する", class: 'btn btn-primary'

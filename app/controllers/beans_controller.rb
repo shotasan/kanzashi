@@ -2,12 +2,12 @@ class BeansController < ApplicationController
   before_action :set_bean, only: %i[edit update destroy]
 
   def index
-    @beans = Bean.all
+    @beans = current_user.beans.resent.page(params[:page])
     @bean = Bean.new
   end
 
   def create
-    @beans = Bean.all
+    @beans = current_user.beans.resent.page(params[:page])
     @bean = current_user.beans.build(bean_params)
 
     if @bean.save

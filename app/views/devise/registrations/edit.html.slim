@@ -16,10 +16,12 @@
       = f.file_field :avatar, class: "mt-4"
     .form-group
       = f.label :name
+      = requier_badge
       br
       = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
     .form-group
       = f.label :email
+      = requier_badge
       br
       = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
     .form-group

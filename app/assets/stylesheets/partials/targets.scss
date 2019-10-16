@@ -16,6 +16,12 @@
   }
 }
 
+.nested-fields:first-child {
+  .remove-form-link {
+    display: none;
+  }
+}
+
 .review-form {
   padding: 0.5em 1em;
   margin: 2em 0;

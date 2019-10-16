@@ -17,6 +17,7 @@ ja:
         name: "名称"
         country: "原産国"
         plantation: "農園"
+        created_at: "登録日"
       review:
         original: 'ブレンド'
         bean: "選択する豆"

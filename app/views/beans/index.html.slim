@@ -1,26 +1,32 @@
 h1 豆の登録
 = render 'beans/form', bean: @bean
-br
-h1 豆の一覧
-br
-table.table.table-striped
-  thead
-    tr.table-info
-      th = Bean.human_attribute_name(:name)
-      th = Bean.human_attribute_name(:country)
-      th = Bean.human_attribute_name(:plantation)
-      th = User.human_attribute_name(:name)
-      th
 
-  tbody
-    - @beans.each do |bean|
-      tr
-        td.bean_name = bean.name
-        td = bean.country
-        td = bean.plantation
-        td = bean.user.name
-        td.button
-          - if current_user?(bean)
-            = link_to '編集', edit_bean_path(bean), class: 'btn btn-primary edit'
-            = link_to '削除', bean_path(bean), method: :delete,
+.bean-index
+  h1 登録済みの豆
+
+  table.table.table-striped.table-bordered
+    thead
+      tr.table-info
+        th = Bean.human_attribute_name(:name)
+        th = Bean.human_attribute_name(:country)
+        th = Bean.human_attribute_name(:plantation)
+        th = Bean.human_attribute_name(:created_at)
+        th
+
+    tbody
+      - @beans.each do |bean|
+        - if bean.persisted?
+          tr
+            / bean_nameはテスト用のクラス名
+            td.bean_name = bean.name
+            td = bean.country
+            td = bean.plantation
+            td = bean.created_at.strftime("%Y年%m月%d日")
+            td.buttons
+              - if current_user?(bean)
+                = link_to '編集', edit_bean_path(bean), class: 'btn btn-primary'
+                = link_to '削除', bean_path(bean), method: :delete,
                     data: { confirm: "登録した豆を削除すると関連するレビューも全て削除されます。よろしいですか？" }, class: 'btn btn-danger'
+
+= paginate @beans
+= page_entries_info @beans
