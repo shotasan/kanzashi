@@ -3,6 +3,7 @@ module ApplicationHelper
     klass.user == current_user
   end
 
+
   # ユーザー画像が設定されていない場合にデフォルト画像を表示する
   def avatar_attached?(user)
     if user.avatar.attached?
