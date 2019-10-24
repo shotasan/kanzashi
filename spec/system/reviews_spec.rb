@@ -177,7 +177,7 @@ RSpec.describe 'レビュー機能' do
         end
         click_on '投稿する'
         within '.rating-rating' do
-          expect(page).to have_css("img[src*='star-on'", count: 5)
+          expect(page).to have_css("img[src*='star-on']", count: 5)
         end
       end
 
@@ -195,8 +195,8 @@ RSpec.describe 'レビュー機能' do
           click_on '編集'
           check 'デフォルト画像に戻す'
           click_on '投稿する'
-          expect(page.find('#review_image')['src']).to have_content'no_image.jpg'
-          expect(page.find('#review_image')['src']).not_to have_content'jon.jpg'
+          expect(page).to have_css("img[src*='no_image']")
+          expect(page).not_to have_css("img[src*='jon']")
         end
       end
     end

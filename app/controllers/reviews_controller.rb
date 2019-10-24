@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
 
   def reset_image
     if params[:review][:reset_image]
-      @review.image.attach(io: File.open('app/assets/images/no_image.jpg'), filename: 'no_image.jpg', content_type: 'image/jpg')
+      @review.image.purge
     end
   end
 end
