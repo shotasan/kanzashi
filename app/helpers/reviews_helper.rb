@@ -18,4 +18,13 @@ module ReviewsHelper
       content_tag(:span, 'ストレート', class: 'badge badge-secondary tag-straight')
     end
   end
+
+  # レビューに添付された画像の有無で表示を切り替える
+  def image_presence?(object, options = {})
+    if object.image.attached?
+      ActionController::Base.helpers.image_tag object_url(object.image), options
+    else
+      ActionController::Base.helpers.image_tag 'no_image.jpg', options
+    end
+  end
 end
