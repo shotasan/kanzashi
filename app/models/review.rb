@@ -15,7 +15,6 @@ class Review < ApplicationRecord
             inclusion: { in: [*1..5] }
   validate :future_date_prohibited
 
-  before_create :image_nil
   before_save :check_straight_or_blend
 
   scope :resent, -> { order(created_at: :desc) }
@@ -30,13 +29,6 @@ class Review < ApplicationRecord
   end
 
   private
-
-  # デフォルト画像を表示するためのメソッド
-  def image_nil
-    unless self.image.attached?
-      self.image.attach(io: File.open('app/assets/images/no_image.jpg'), filename: 'no_image.jpg', content_type: 'image/jpg')
-    end
-  end
 
   def future_date_prohibited
     if drank_on.present? && drank_on > Date.today
