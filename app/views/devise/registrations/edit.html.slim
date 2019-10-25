@@ -7,7 +7,7 @@
       = f.label :avatar
     .circle-avatar
       - if avatar_present?
-        = image_tag current_user.avatar
+        = image_tag object_url(current_user.avatar)
         span  画像を削除
         label = check_box_tag "remove_avatar", true
       - else
