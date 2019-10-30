@@ -94,7 +94,7 @@ RSpec.describe 'レビュー機能' do
         end
       end
 
-      context 'レビュー一覧画面のタグに関するテスト' do
+      context '投稿一覧画面のタグに関するテスト' do
         it '選択する豆が１種類の場合ストレートのタグが表示されること' do
           click_on '投稿する'
           visit reviews_path
@@ -245,7 +245,7 @@ RSpec.describe 'レビュー機能' do
         click_on 'MyString'
       end
 
-      it 'レビュー一覧でタイトルをクリックすると詳細画面に遷移する' do
+      it '投稿一覧でタイトルをクリックすると詳細画面に遷移する' do
         expect(page).to have_content 'レビュー詳細'
       end
 
@@ -273,7 +273,7 @@ RSpec.describe 'レビュー機能' do
         click_on 'Other'
       end
 
-      it 'レビュー一覧でタイトルをクリックすると詳細画面に遷移する' do
+      it '投稿一覧でタイトルをクリックすると詳細画面に遷移する' do
         expect(page).to have_content 'Other'
       end
 
