@@ -14,7 +14,7 @@
     p = @user.profile
     h5 レビュー数
     p = @user.reviews.count
-    - if @user == current_user
+    - if @user == current_user && !guest?
       = link_to '編集', edit_user_registration_path, class: 'btn btn-primary'
 
 .row
