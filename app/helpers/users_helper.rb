@@ -10,4 +10,8 @@ module UsersHelper
   def guest_password
     'guestuser'
   end
+
+  def guest?
+    current_user.email == guest_email
+  end
 end
