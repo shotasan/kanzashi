@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :guest?, only: %i[edit update destroy]
 
   # GET /resource/sign_up
   # def new
@@ -69,5 +70,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # アカウント編集時にパスワード入力を不要にする
   def update_resource(resource, params)
     resource.update_without_current_password(params)
+  end
+
+  def guest?
+    redirect_to reviews_url, notice: 'ゲストユーザーはプロフィールの編集はできません。' if view_context.guest?
   end
 end

@@ -118,7 +118,7 @@ RSpec.describe '豆の管理機能', type: :system do
       end
     end
 
-    it '登録したレビューがレビュー一覧に表示される' do
+    it '登録したレビューが投稿一覧に表示される' do
       visit reviews_path
       expect(page).to have_content 'Destroy'
     end

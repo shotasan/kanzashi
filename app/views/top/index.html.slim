@@ -23,12 +23,13 @@ html
             h3.mb-5
               | Let's find your best coffee
           .col-md-10.col-lg-8.col-xl-7.mx-auto
-            form
-              .form-row
-                .col-12.offset-md-3.col-md-3.mb-2.mb-md-0
-                  = link_to '新規登録',  new_user_registration_path, class: 'btn btn-block btn-lg btn-primary'
-                .col-12.col-md-3
-                  = link_to 'ログイン',  new_user_session_path, class: 'btn btn-block btn-lg btn-primary'
+            .form-row
+              .offset-2.col-8.offset-md-0.col-md-4.mb-4
+                = link_to '新規登録',  new_user_registration_path, class: 'btn btn-block btn-lg btn-primary'
+              .offset-2.col-8.offset-md-0.col-md-4.mb-4
+                = link_to 'ログイン',  new_user_session_path, class: 'btn btn-block btn-lg btn-primary'
+              .offset-2.col-8.offset-md-0.col-md-4
+                = link_to 'ゲストユーザー', user_session_path(user: { email: guest_email, password: guest_password }), class: 'btn btn-block btn-info btn-lg', method: :post
     section.features-icons.bg-light.text-center
       .container
         .row
