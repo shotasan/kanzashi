@@ -1,11 +1,18 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-signin' }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
+
+  h2
+    | パスワード再設定リクエスト
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
+  p
+    |　以下の欄に登録したメールアドレスを入力し、送信ボタンを押してください。
+    br
+    | 　登録したメールアドレス宛に、パスワードを再設定するためのメールを送信します。
+  .field
+    .form-group
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+  .actions.text-right
+    = f.submit "送信", class: 'btn btn-primary mt-3'
 = render "devise/shared/links"
