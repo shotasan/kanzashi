@@ -1,4 +1,6 @@
 class UsersController < Users::RegistrationsController
+  prepend_before_action :authenticate_scope!
+
   def index
     redirect_to edit_user_registration_url(current_user)
   end
