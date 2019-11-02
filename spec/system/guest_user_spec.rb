@@ -3,17 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe 'ゲストユーザー機能', type: :system do
-  let(:user){ FactoryBot.create(:user, name: 'ゲストユーザー', email: 'guest@sample.com', password: 'guestuser')}
+  let!(:user){ FactoryBot.create(:user, name: 'ゲストユーザー', email: 'guest@sample.com', password: 'guestuser')}
 
   describe 'ログイン機能' do
     before do
-      visit new_user_session_path
-      fill_in 'メールアドレス', with: user.email
-      fill_in 'パスワード', with: user.password
-      click_on 'ログインする'
+      visit root_path
+      click_on 'ゲストユーザー'
     end
 
-    it 'ゲストユーザーとしてログインし、ユーザー詳細画面に遷移する' do
+    it 'ゲストユーザーボタンをクリックするとゲストユーザーとしてログインし、ユーザー詳細画面に遷移する' do
       expect(page).to have_content 'ログインしました'
       expect(page).to have_content 'ゲストユーザーの投稿一覧'
     end
