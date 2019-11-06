@@ -49,6 +49,17 @@ RSpec.describe Review, type: :model do
         expect(review.errors[:content]).to include('は1000文字以内で入力してください')
       end
 
+      it 'itemが100文字以下なら有効な状態であること' do
+        review.item = 'a' * 100
+        expect(review).to be_valid
+      end
+
+      it 'itemが100文字より多いなら無効な状態であること' do
+        review.item = 'a' * 101
+        review.valid?
+        expect(review.errors[:item]).to include('は100文字以内で入力してください')
+      end
+
       it 'ratingに1から5以外の数字が入れば無効な状態であること' do
         review.rating = 0
         review.valid?
