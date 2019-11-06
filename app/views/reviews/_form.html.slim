@@ -29,6 +29,9 @@
     .form-group.mb-5
       = form.label :drank_on
       = form.date_field :drank_on, value: Date.today, class: 'd-block form-control'
+    .form-group
+      = form.label :item
+      = form.text_field :item, placeholder: '器具の名称やリンク先を入力できます', class: 'form-control'
     .row
       .form-group.col-md-2
         = form.label :rating
