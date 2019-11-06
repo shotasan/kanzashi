@@ -63,12 +63,8 @@
   }
 
   .card-footer {
-    position: relative;
-
     .user-link {
-      position: absolute;
-      right: 1rem;
-      display: inline-flex;
+      text-align: right;
     }
     .circle-avatar {
       float: left;
