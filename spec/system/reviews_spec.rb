@@ -54,6 +54,13 @@ RSpec.describe 'レビュー機能' do
         expect(page).to have_selector '.alert'
       end
 
+      it '器具を100文字より多く入力すると警告が表示される' do
+        fill_in '器具', with: 'a' * 101
+        click_on '投稿する'
+        expect(page).to have_content '器具は100文字以内で入力してください'
+        expect(page).to have_selector '.alert'
+      end
+
       it '飲んだ日に未来の日付を入力すると警告が表示される' do
         fill_in '飲んだ日', with: Date.tomorrow
         click_on '投稿する'
@@ -295,6 +302,23 @@ RSpec.describe 'レビュー機能' do
         wait_for_ajax
         expect(page).to have_content 'お気に入り解除'
         expect(current_user.favorites.count).to eq 1
+      end
+    end
+
+    context 'rinkuのテスト' do
+
+      it '器具にリンク先のURLを入力するとリンクとして表示されること' do
+        review.item = 'https://sample.com'
+        review.save
+        visit review_path(Review.last.id)
+        expect(page).to have_link 'https://sample.com'
+      end
+
+      it 'scriptタグが入力されるとエスケープされること' do
+        review.item = "<script>alert('Hello');</script>"
+        review.save
+        visit review_path(Review.last.id)
+        expect(page).to have_content "<script>alert('Hello');</script>"
       end
     end
   end

@@ -2035,6 +2035,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rinku (vbundled(2.0.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/test" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rspec-core (vbundled(3.8.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

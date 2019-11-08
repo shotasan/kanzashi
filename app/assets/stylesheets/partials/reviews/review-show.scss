@@ -12,15 +12,6 @@
     }
   }
 
-  table {
-    th {
-      width: 30%;
-    }
-    #review_image {
-      width: 80%;
-    }
-  }
-
   //bean_info.html
   .card-deck {
     margin-top: 1rem;
@@ -70,7 +61,6 @@
       .card-body {
       }
       .card-hooter {
-        height: 4rem;
         padding-top: 0.5rem;
         margin-right: 0;
         margin-left: 0;
@@ -78,6 +68,7 @@
 
         .comment-circle-avatar {
           float: left;
+          margin-left: 1rem;
 
           img {
             width: 50px;
