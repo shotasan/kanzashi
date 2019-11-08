@@ -12,38 +12,42 @@
 
   = render 'bean_info', review: @review
 
-  table.table
-    tbody
-      tr
-        th= Review.human_attribute_name(:title)
-        td= @review.title
-      tr
-        th= Review.human_attribute_name(:content)
-        td= @review.content
-      tr
-        th= Review.human_attribute_name(:rating)
-        td.rating-rating data-score="#{ @review.rating }"
-      tr
-        th= Review.human_attribute_name(:bitter)
-        td.bitter-rating data-score="#{ @review.bitter }"
-      tr
-        th= Review.human_attribute_name(:acidity)
-        td.acidity-rating data-score="#{ @review.acidity }"
-      tr
-        th= Review.human_attribute_name(:rich)
-        td.rich-rating data-score="#{ @review.rich }"
-      tr
-        th= Review.human_attribute_name(:sweet)
-        td.sweet-rating data-score="#{ @review.sweet }"
-      tr
-        th= Review.human_attribute_name(:aroma)
-        td.aroma-rating data-score="#{ @review.aroma }"
-      tr
-        th= Review.human_attribute_name(:image)
-        td= image_presence?(@review,  size: '380x320', id: 'review_image')
-      tr
-        th= Review.human_attribute_name(:created_at)
-        td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")
+  .table-responsive
+    table.table
+      tbody
+        tr
+          th= Review.human_attribute_name(:title)
+          td= @review.title
+        tr
+          th= Review.human_attribute_name(:content)
+          td= @review.content
+        tr
+          th= Review.human_attribute_name(:item)
+          td== Rinku.auto_link(h(@review.item), :urls, 'target="_blank"')
+        tr
+          th= Review.human_attribute_name(:rating)
+          td.rating-rating data-score="#{ @review.rating }"
+        tr
+          th= Review.human_attribute_name(:bitter)
+          td.bitter-rating data-score="#{ @review.bitter }"
+        tr
+          th= Review.human_attribute_name(:acidity)
+          td.acidity-rating data-score="#{ @review.acidity }"
+        tr
+          th= Review.human_attribute_name(:rich)
+          td.rich-rating data-score="#{ @review.rich }"
+        tr
+          th= Review.human_attribute_name(:sweet)
+          td.sweet-rating data-score="#{ @review.sweet }"
+        tr
+          th= Review.human_attribute_name(:aroma)
+          td.aroma-rating data-score="#{ @review.aroma }"
+        tr
+          th= Review.human_attribute_name(:image)
+          td= image_presence?(@review,  size: '380x320', id: 'review_image', class: 'img-fluid')
+        tr
+          th= Review.human_attribute_name(:created_at)
+          td= @review.created_at.strftime("%H:%M - %Y年%m月%d日")
 
 
   div.label

@@ -23,6 +23,7 @@ ja:
         bean: "選択する豆"
         title: "タイトル"
         content: "レビュー内容"
+        item: "器具"
         image: "画像"
         drank_on: "飲んだ日"
         rating: "総合評価"
