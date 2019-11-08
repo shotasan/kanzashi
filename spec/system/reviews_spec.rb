@@ -198,6 +198,12 @@ RSpec.describe 'レビュー機能' do
           expect(page.find('#review_image')['src']).to have_content'jon.png'
         end
 
+        it 'デフォルト画像に戻すにチェックを入れずに投稿するをクリックすると詳細画面に遷移し、投稿した画像が表示されること' do
+          click_on '編集'
+          click_on '投稿する'
+          expect(page).to have_css("img[src*='jon']")
+        end
+
         it 'デフォルト画像に戻すにチェックを入れて投稿するをクリックすると詳細画面に遷移し、デフォルト画像が表示されること' do
           click_on '編集'
           check 'デフォルト画像に戻す'
