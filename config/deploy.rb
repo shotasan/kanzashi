@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
-lock '3.11.1'
+lock "3.11.1"
 
-set :application, 'kanzashi'
-set :repo_url, 'git@github.com:shotasan/kanzashi.git'
+set :application, "kanzashi"
+set :repo_url, "https://github.com/shotasan/kanzashi.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/kanzashi'
+set :deploy_to, "/var/www/kanzashi"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -38,32 +38,34 @@ set :keep_releases, 5
 set :linked_files, %w{config/master.key config/puma.rb}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 
-set :rbenv_ruby, '2.6.3'
+set :rbenv_ruby, "2.6.3"
 set :rbenv_type, :system
 
+set :log_level, :debug
+
 namespace :deploy do
-  desc 'Restart application'
+  desc "Restart application"
   task :restart do
-    invoke 'puma:restart'
+    invoke "puma:restart"
   end
 
-  desc 'Create database'
+  desc "Create database"
   task :db_create do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
+          execute :bundle, :exec, :rake, "db:create"
         end
       end
     end
   end
 
-  desc 'Run seed'
+  desc "Run seed"
   task :seed do
     on roles(:app) do
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :bundle, :exec, :rake, 'db:seed'
+          execute :bundle, :exec, :rake, "db:seed"
         end
       end
     end
